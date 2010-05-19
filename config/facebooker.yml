@@ -34,8 +34,8 @@ test:
     local_port: 3000
 
 production:
-  api_key: ae419b0f98f0b52f2b36d7e8243fcdd5
-  secret_key: 1ce87ba0ccfed6ef162faf31bbaff173
+  api_key: ac3103824b7267f8fc848284e7c092fc
+  secret_key: d04c692ec850d034b83ff9cc8b78f4ed
   canvas_page_name: xiggit_fb
   callback_url: http://sharp-lightning-54.heroku.com
   pretty_errors: false
