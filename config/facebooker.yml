@@ -36,8 +36,8 @@ test:
 production:
   api_key: ae419b0f98f0b52f2b36d7e8243fcdd5
   secret_key: 1ce87ba0ccfed6ef162faf31bbaff173
-  canvas_page_name: localhost
-  callback_url: http://localhost:3000
+  canvas_page_name: xiggit_fb
+  callback_url: http://sharp-lightning-54.heroku.com
   pretty_errors: false
   set_asset_host_to_callback_url: true
   tunnel:
