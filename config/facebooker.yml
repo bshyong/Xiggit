@@ -1,0 +1,59 @@
+# The api key, secret key, and canvas page name are required to get started
+# Tunnel configuration is only needed if you are going to use the facebooker:tunnel Rake tasks
+# Your callback url in Facebook should be set to http://public_host:public_port
+# If you're building a Facebook connect site, 
+#    change the value of set_asset_host_to_callback_url to false
+# To develop for the new profile design, add the following key..
+# api: new
+# remove the key or set it to anything else to use the old facebook design.
+# This should only be necessary until the final version of the new profile is released.
+
+development:
+  api_key: ae419b0f98f0b52f2b36d7e8243fcdd5
+  secret_key: 1ce87ba0ccfed6ef162faf31bbaff173
+  canvas_page_name: localhost
+  callback_url: http://localhost:3000
+  pretty_errors: false
+  set_asset_host_to_callback_url: true
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000
+
+test:
+  api_key: 
+  secret_key: 
+  canvas_page_name: 
+  callback_url:
+  set_asset_host_to_callback_url: true
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000
+
+production:
+  api_key: ae419b0f98f0b52f2b36d7e8243fcdd5
+  secret_key: 1ce87ba0ccfed6ef162faf31bbaff173
+  canvas_page_name: localhost
+  callback_url: http://localhost:3000
+  pretty_errors: false
+  set_asset_host_to_callback_url: true
+  tunnel:
+    public_host_username:
+    public_host:
+    public_port: 4007
+    local_port: 3000
+
+#production:
+#  api_key: ae419b0f98f0b52f2b36d7e8243fcdd5
+#  secret_key: 1ce87ba0ccfed6ef162faf31bbaff173
+#  canvas_page_name: Xiggit
+#  callback_url: http://www.cold-river-30.heroku.com/
+#  set_asset_host_to_callback_url: true
+#  tunnel:
+#    public_host_username:
+#    public_host:
+#    public_port: 4007
+#    local_port: 3000

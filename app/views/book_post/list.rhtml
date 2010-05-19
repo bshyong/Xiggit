@@ -1,0 +1,134 @@
+<%= stylesheet_link_tag 'book_post_list'  %>
+
+<script type="text/javascript">
+<% @book_posts.each do |b| -%>
+
+
+  function show_details_<%= b.id %>() {
+    Effect.BlindDown('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
+  //  Effect.Appear('details_<%= b.id %>', {duration:1.0});
+    $('hide_details_link_<%=  b.id %>').style.display = 'inline';
+    $('show_details_link_<%=  b.id %>').style.display = 'none';
+  }
+  function hide_details_<%= b.id %>() {
+    Effect.BlindUp('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
+  //     Effect.Fade('details_<%= b.id %>', {duration:0.5});
+    $('hide_details_link_<%=  b.id %>').style.display = 'none';
+    $('show_details_link_<%=  b.id %>').style.display = 'inline';
+  }
+
+  <% end -%>
+</script>
+
+
+<div id="wrap_list">
+<div id="list_body" class="deliciousbold"><div style="text-align:center; margin-bottom:10px;">current listings in the underground market at <%= @current_user.school_name %>
+
+</div>
+<% if @book_posts.blank? %>
+<br />
+There are no posts at the moment.  Be the first to list your book!
+
+<% else %>
+
+<div class="sort_links">
+  <% if params[:order] == "price ASC" %>
+  <big>&raquo;</big>
+    <% end %>
+<%= link_to "Sort by price", :action => 'list', :order => "price ASC", :school_id => @default_school %>
+
+<%= '&nbsp;'*2 %>|<%= '&nbsp;'*2 %>
+
+<% if params[:order] != "price ASC" && params[:order] != "condition DESC" %>
+  <big>&raquo;</big>
+  <% end %>
+<%= link_to "Sort by date", :action => 'list', :order => "created_at DESC", :school_id => @default_school %>
+
+
+<%= '&nbsp;'*2 %>|<%= '&nbsp;'*2 %>
+   <% if params[:order] == "condition DESC" %>
+  <big>&raquo;</big>
+    <% end %>
+<%= link_to "Sort by condition", :action => 'list', :order => "condition DESC", :school_id => @default_school %>
+
+
+  <%= will_paginate @book_posts %>
+
+</div>
+
+<% @book_posts.each do |b| -%>
+          <table id="book_posts" align="center">
+
+
+            <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows") -%>">
+              <td class="top_left">
+			<%= link_to b.title, {:action => 'show', :id => b.id} -%>
+              </td>
+              <td class="top_right">by <%= b.author -%></td>
+            </tr>
+
+            <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows2") -%>">
+              <td>
+              </td>
+              <td class="bottom_right" style="line-height:50%; font-size:24px;">
+
+                <small>posted <%= (Time.now.to_i - Time.at(b.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= b.created_at.strftime('%A, %B, %d, %Y') %>
+ </small>
+              </td>
+            </tr>
+         <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows4") -%>">
+          <td class="bottom_left" id="course">
+                <small> course:</small> <%= b.course -%>
+
+              </td>
+           <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span></td>
+         </tr>
+
+          </table>
+<table id="book_posts_details">
+              <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows3") -%>">
+                <td>
+
+
+        <span class="small2">
+<div class="details_link" id="show_details_link_<%= b.id %>" style="display:inline;">
+  <big><big>></big></big> <a href="#" onclick="show_details_<%= b.id %>(); return false;">show details</a>
+  <br><br>
+</div>
+
+<div class="details_link" id="hide_details_link_<%= b.id %>" style="display:none;">
+<a href="#" onclick="hide_details_<%= b.id %>(); return false;"><small>^</small> hide details</a>
+ <br>
+</div>
+  </span>
+<div id="details_<%= b.id %>" style="display:none;">
+  <table align="center" class="post_details_<%= cycle('odd', 'even', :name => "post_details") -%>"  style="color:#0a2f40; "><tr><td>
+        <span class="small">Condition: </span> <%= b.condition %><br />
+        <span class="small">Publisher: </span> <%= b.publisher %><br />
+</td>
+      <td>
+        <span class="small">Year: </span> <%= b.year %><br />
+<span class="small">Edition: </span> <%= b.ed %><br />
+
+
+      </td>
+    </tr></table>
+  <% unless b.comments.blank? %><div id="comments_div">
+  <span class="small3">Comments from seller:</span><br/><div id="indented"
+ <span class="comments"><%= b.comments %></span></div>
+ <% end %>
+</div></div>
+
+                </td>
+              </tr>
+            </table>
+        <% end -%>
+<% end -%>
+
+
+</div>
+</div>
+
+
+</div>
+

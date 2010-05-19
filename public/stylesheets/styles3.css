@@ -1,0 +1,490 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+font-family: "Delicious Heavy";
+src: url(http://www.xiggit.com/fonts/Delicious-Heavy.otf) format("opentype");
+}
+
+@font-face {
+font-family: "Delicious Roman";
+src: url(http://www.xiggit.com/fonts/Delicious-Roman.otf) format("opentype");
+}
+
+@font-face {
+font-family: "Delicious Bold";
+src: url(http://www.xiggit.com/fonts/Delicious-Bold.otf) format("opentype");
+}
+
+h1 {
+	font-family: "Delicious Heavy", sans-serif;
+	font-size:96px;
+	color:#114b65;
+	line-height:50%;
+}
+
+#wrapper {
+	text-align:center;
+	margin-top:100px;
+}
+
+#wrapper2 {
+	text-align:center;
+	margin-top:75px;
+}
+
+#wrapper3{
+	text-align:center;
+	margin-top:40px;
+}
+
+
+.deliciousheavy {
+	font-family: "Delicious Heavy", sans-serif;
+	color:#114b65;
+}
+
+#fbconnect {
+	width:164px;
+	height:40px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url('images/connect.png');
+}
+
+#go {
+	float:left;
+
+}
+
+#wrap2 {
+	width:317px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:26px;
+}
+
+#login {
+	float:left;
+	line-height:100%;
+	letter-spacing:normal;
+	display:inline;
+}
+
+#or {
+	line-height:20%;
+}
+
+#go {
+	line-height:100%;
+	position:relative;
+	float:left;
+	font-weight:bold;
+	font-size:28px;
+	height:49px;
+	width:64px;
+	margin-top:15px;
+/*	background-image:url('images/go.png');
+	background-repeat:no-repeat;
+	color:#ff8400; */
+}
+
+
+.field{
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-right:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+} 
+
+#info {
+	font-size:18px;
+	letter-spacing:0.5px;
+	line-height:90%;
+	margin-top:10px;
+	padding-top:10px;
+}
+
+#footer {
+	margin-top:25px;
+	font-family: "Delicious Roman", sans-serif;
+	color:#114b65;
+	text-align:center;
+	letter-spacing:1.5px;
+	font-weight:bold;
+	font-size:14px;
+	line-height:100%;
+}
+
+#footer2 {
+	margin-top:20px;
+	font-family: "Delicious Roman", sans-serif;
+	color:#114b65;
+	text-align:center;
+	letter-spacing:1px;
+	font-weight:bold;
+	font-size:12px;
+	line-height:100%;
+}
+
+#footer3 {
+	margin-top:35px;
+        margin-bottom:120px;
+	font-family: "Delicious Roman", sans-serif;
+	color:#114b65;
+	text-align:center;
+	letter-spacing:1px;
+	font-weight:bold;
+	font-size:12px;
+	line-height:100%;
+}
+
+
+
+form label {
+	display:inline;
+	font-size:18px;
+	font-family: "Delicious Heavy", sans-serif;
+	color:#114b65;
+}
+
+#wrap3 {
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+}
+
+.searchfield{
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+} 
+
+.searchtable {
+	line-height:35%;
+	text-align:left;
+}
+
+#title{
+  background-image:url('http://www.xiggit.com/images/longfield.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:388px;
+  border:none;
+  padding-left:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+} 
+
+
+
+small {
+	font-size:14px;
+}
+
+#isbn {
+	margin-right:10px;
+}
+
+
+#show {
+	position:relative;
+	top:2px;
+}
+
+#book_post_isbn, #book_post_course {
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+}
+
+#book_post_price {
+  background-image:url('http://www.xiggit.com/images/fieldprice.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:130px;
+  border:none;
+  padding-left:22px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+}
+
+#wrap4 {
+	width:420px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+}
+
+#book_post_comments {
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+  background-color:#ccefff;
+  border:none;
+  padding:5px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#newpostfields td {
+	padding:0px 18px;
+}
+
+img {
+	border:none;
+}
+
+#errorExplanation h2 {
+	font-size:20px;
+	color:black;
+	text-decoration:underline;
+}
+
+#errorExplanation ul {
+text-align:left;
+font-size:18px;
+color:red;
+
+
+}
+
+#errorExplanation p {
+line-height:50%;
+font-size:18px;
+color:red;
+}
+
+table#book_posts {
+    font-size:16px;
+    text-align:left;
+    margin-top:15px;
+    border-collapse:collapse;
+    border-top:thick solid orange;
+    /* color:#7799bb; 
+    color:#5d8bba;
+        color:#5e758d; */
+    width:750px;
+    color:#114b65;
+}
+
+table#book_posts tr{
+width:750px;
+}
+
+table#book_posts td{
+width:375px;
+}
+
+table#book_posts a:link {
+    text-decoration:none;
+        color:#114b65;
+}
+
+#wrap_list {
+	width:750px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+        text-align:center;
+}
+
+a:link {
+        text-decoration:none;
+        color:#ff8400;
+        /*color:#114b65;*/
+
+}
+
+#list_body a:visited {
+        text-decoration:none;
+        color:#114b65;
+}
+
+#list_body a:hover {
+    text-decoration:underline;
+}
+
+.list-line-odd {
+    background-color:#e6f7ff;
+
+}
+
+.list-line-even {
+    background-color:#fff;
+
+}
+
+td.top_left {
+   padding: 18px 10px 4px 10px;
+   font-size:18px;
+}
+
+td.bottom_left {
+   padding: 0px 10px 8px 10px;
+}
+
+td.top_right {
+   padding: 8px 10px 4px 0px;
+}
+
+td.bottom_right {
+   padding: 0px 10px 8px 0px;
+}
+
+a#newpostlink:visited {
+    color:#ff8400;
+}
+
+a#newpostlink:link {
+    color:#ff8400;
+}
+
+table#book_posts_details {
+    font-size:16px;
+    text-align:left;
+    margin-top:-3px;
+    margin-bottom:-12px;
+    border-collapse:collapse;
+    /* color:#7799bb; */
+    color:#526e8a;
+    width:750px;
+    border-bottom:thick solid orange;
+}
+
+table#book_posts_details td{
+padding:0px 10px 6px 10px;
+}
+
+#course {
+    font-size:18px;
+    color:#000000;
+}
+
+.small2 {
+	font-size:16px;
+        color:#ff8400;
+}
+
+.post_details {
+    padding-top:5px;
+     font-family: "Delicious Roman", sans-serif;
+     font-size:14px;
+font-weight:bold;
+     color:#526e8a;
+}
+
+.price {
+     font-family: "Delicious Roman", sans-serif;
+        font-size:18px;
+        font-weight:bold;
+    color:#000000;
+}
+
+.small {
+    font-size:12px;
+    color:#0a2f40;
+}
+
+.small3 {
+    font-size:16px;
+    color:#000000;
+    font-weight:bold;
+
+}
+
+.comments {
+        font-size:18px;
+        font-weight:normal;
+    color:#114b65;
+}
+
+div.details_link {
+        color:#ff8400;
+}
+
+#course_autocomplete {
+      font-family: "Delicious Roman", sans-serif;
+      line-height:100%;
+      font-size:12px;
+}
+
+.post_details_odd {
+    background-color:#ffffff;
+    padding: 5px;
+border:medium solid #526e8a;
+    width:680px;
+    margin:10px 0px;
+}
+
+.post_details_even {
+    background-color:#ffffff;
+    padding: 5px;
+     margin:10px 0px;
+     width:680px;
+     border:medium solid #526e8a;
+
+}
+
+#comments_div {
+    margin-bottom:8px;
+    margin-top:5px;
+}
+
+#indented {
+    padding:0px 20px;
+}
+
+.sort_links a:link, a:visited {
+    color:#114b65;
+}
+
+big {
+    color:#ff8400;
+}
+
+span.current {
+    font-size:28px;
+}
+
+div#homeschool {
+    margin: 5px 0px 15px 0px;
+    font-family: "Delicious Roman", sans-serif;
+    color:#114b65;
+    text-align:center;
+    letter-spacing:1px;
+    font-size:16px;
+    line-height:100%;
+}

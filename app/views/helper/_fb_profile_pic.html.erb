@@ -1,0 +1,44 @@
+<% form_tag do %>
+
+  <b><%= @helper_name %>(</b>
+
+  <%= text_field_tag :uid, (params[:uid] || '1025124802') %>
+  <small>(facebook id or @current_user)</small>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_size, ':size' %>
+    <%= select_tag :helper_size, options_for_select(['', 'thumb', 'small', 'normal', 'square'], params[:helper_size]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_width, ':width' %>
+    <%= text_field_tag :helper_width, params[:helper_width] %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_height, ':height' %>
+    <%= text_field_tag :helper_height, params[:helper_height] %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_linked, ':linked' %>
+    <%= select_tag :helper_linked, options_for_select(['', 'true', 'false'], params[:helper_linked]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_facebook_logo, ':facebook_logo' %>
+    <%= select_tag :helper_facebook_logo, options_for_select(['', 'true', 'false'], params[:helper_facebook_logo]) %>
+  <% end  %>
+
+
+  <b>)</b>
+
+  <%= submit_tag 'Go' %>
+
+<% end %>
+
+
+<% if request.post? %>
+  <% @invocation = helper_invocation("#{@helper_name}(#{Integer(params[:uid]) rescue '@current_user'}", params) %>
+  <%= render :partial => 'shared/invocation_and_result' %>
+<% end %>

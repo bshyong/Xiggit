@@ -1,0 +1,18 @@
+<hr />
+<h2><%= @book_post.title %></h2>
+<p>
+<strong>Author: </strong> <%= @book_post.author %><br />
+<strong>ISBN: </strong> <%= @book_post.isbn %><br />
+<strong>Publisher: </strong> <%= @book_post.publisher %><br />
+<strong>Year: </strong> <%= @book_post.year %><br />
+<strong>Edition: </strong> <%= @book_post.ed %><br />
+<strong>Date Posted:</strong> <%= @book_post.created_at %><br />
+
+<strong>Course: </strong> <%= @book_post.course %><br />
+<strong>Price: </strong> <%= number_to_currency(@book_post.price) %><br />
+<strong>Condition: </strong> <%= @book_post.condition %><br />
+</p>
+<p><strong>Comments: </strong> <%= @book_post.comments %></p>
+<hr />
+<h3>Link_to EDIT</h3>
+<h3>Link_to DELETE</h3>

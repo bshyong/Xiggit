@@ -1,0 +1,135 @@
+
+.field{
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-right:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.searchfield{
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+}
+
+#book_post_price {
+  background-image:url('http://www.xiggit.com/images/fieldprice.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:130px;
+  border:none;
+  padding-left:22px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+}
+
+#book_post_comments {
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+  background-color:#ccefff;
+  border:none;
+  padding:5px;
+  margin-left:auto;
+  margin-right:auto;
+  width:400px;
+}
+
+#newpostfields td {
+	padding:0px 18px;
+}
+
+#book_post_isbn {
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:18px;
+  letter-spacing:2px;
+}
+
+#book_post_course {
+  background-image:url('http://www.xiggit.com/images/field.png');
+  background-repeat:no-repeat;
+  height:24px;
+  width:150px;
+  border:none;
+  padding-left:5px;
+  padding-top:3px;
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+#isbn {
+	margin-right:10px;
+}
+
+#wrap4 {
+        width:350px;
+	margin-left:auto;
+	margin-right:auto;
+        font-family:'Delicious Bold';
+        
+}
+
+#errorExplanation h2 {
+	font-size:20px;
+	color:black;
+	text-decoration:underline;
+}
+
+#errorExplanation ul {
+text-align:left;
+font-size:18px;
+color:red;
+}
+
+#errorExplanation p {
+line-height:50%;
+font-size:18px;
+color:red;
+}
+
+#errorExplanation {
+border: solid thin gray;
+margin-bottom: 10px;
+}
+
+
+div.center {
+    text-align:center;
+}
+
+small {
+    font-family: "Delicious Roman";
+    font-size:14px;
+}

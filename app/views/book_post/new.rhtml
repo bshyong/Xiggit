@@ -1,0 +1,212 @@
+<%= stylesheet_link_tag 'book_post_new'  %>
+
+  <style type="text/css">
+
+    select {
+      display: block;
+      width: 150px;
+    }
+    select.replaced {
+      display: none;
+    }
+    ul.selectReplacement {
+
+      background-image:url('http://www.xiggit.com/images/fieldselect.png');
+      background-repeat:no-repeat;
+      background: url('http://www.xiggit.com/images/fieldselect.png') top-left no-repeat;
+      margin: 0;
+      padding: 0;
+      padding-left:5px;
+
+    }
+    ul.selectReplacement li {
+      background: #ccefff;
+      cursor: pointer;
+      display: none;
+        font-family: "Delicious Bold", sans-serif;
+     color:#114b65;
+   font-weight:bold;
+    font-size:16px;
+     margin-top:5px;
+      line-height: 1.2em;
+      list-style: none;
+      margin: 0;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      width: 135px;
+      padding-left:10px;
+    }
+    ul.selectOpen li {
+      display: block;
+    }
+    ul.selectReplacement li.selected {
+background:none;
+        font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+      display: block;
+    }
+    ul.selectOpen li.selected {
+      background: #ccefff;
+      display: block;
+    }
+    ul.selectOpen li:hover,
+    ul.selectOpen li.hover,
+    ul.selectOpen li.selected:hover {
+      background: #fff;
+    color:#114b65;
+    }
+  </style>
+  <script type="text/javascript">
+    function selectReplacement(obj) {
+      // append a class to the select
+      obj.className += ' replaced';
+      // create list for styling
+      var ul = document.createElement('ul');
+      ul.className = 'selectReplacement';
+      var opts = obj.options;
+      for (var i=0; i<opts.length; i++) {
+        var selectedOpt;
+        if (opts[i].selected) {
+          selectedOpt = i;
+          break;
+        } else {
+          selectedOpt = 0;
+        }
+      }
+      for (var i=0; i<opts.length; i++) {
+        var li = document.createElement('li');
+        var txt = document.createTextNode(opts[i].text);
+        li.appendChild(txt);
+        li.selIndex = opts[i].index;
+        li.selectID = obj.id;
+        li.onclick = function() {
+          selectMe(this);
+        }
+        if (i == selectedOpt) {
+          li.className = 'selected';
+          li.onclick = function() {
+            this.parentNode.className += ' selectOpen';
+            this.onclick = function() {
+              selectMe(this);
+            }
+          }
+        }
+        if (window.attachEvent) {
+          li.onmouseover = function() {
+            this.className += ' hover';
+          }
+          li.onmouseout = function() {
+            this.className =
+              this.className.replace(new RegExp(" hover\\b"), '');
+          }
+        }
+        ul.appendChild(li);
+      }
+      // add the input and the ul
+      obj.parentNode.appendChild(ul);
+    }
+    function selectMe(obj) {
+      var lis = obj.parentNode.getElementsByTagName('li');
+      for (var i=0; i<lis.length; i++) {
+        if (lis[i] != obj) { // not the selected list item
+          lis[i].className='';
+          lis[i].onclick = function() {
+            selectMe(this);
+          }
+       } else {
+          setVal(obj.selectID, obj.selIndex);
+          obj.className='selected';
+          obj.parentNode.className =
+            obj.parentNode.className.replace(new RegExp(" selectOpen\\b"), '');
+          obj.onclick = function() {
+            obj.parentNode.className += ' selectOpen';
+            this.onclick = function() {
+              selectMe(this);
+            }
+          }
+        }
+      }
+    }
+    function setVal(objID, selIndex) {
+      var obj = document.getElementById(objID);
+      obj.selectedIndex = selIndex;
+    }
+    function setForm() {
+      var s = document.getElementsByTagName('select');
+      for (var i=0; i<s.length; i++) {
+        selectReplacement(s[i]);
+      }
+    }
+    function closeSel(obj) {
+      // close the ul
+    }
+    window.onload = function() {
+      (document.all && !window.print) ? null : setForm();
+    }
+  </script>
+
+<div id="wrap4">
+  <br />
+<div class="center" style="font-size:20px;">sell direct to your classmates at <%=  @current_user.school_name %>
+<br /><br /></div>
+<%= error_messages_for 'book_post' -%>
+
+
+
+<small><div id="isbn_tip" style="font-family:'Delicious Roman'; font-size:14px; text-align:center;">ISBN is usually above the barcode on the back cover</div></small> </div>
+<%= form_tag :action => 'create' %>
+
+  <fieldset style="border:none;">
+<table class="searchtable" id="newpostfields" align="center"><tr><td>
+       <label for="book_post_isbn">ISBN <small>(10 or 13 digit)</small></label>
+        <br /> <br />
+    <%= text_field 'book_post', 'isbn' %></td>
+    <td>
+<label for="book_post_price">price</label><br/><br/>
+<%= text_field 'book_post', 'price' %>
+   </td>
+
+    </tr>
+   <tr>
+       <td><br/>
+    <label for="book_post_condition">condition</label><br/><br/>
+<select id ="book_post[condition]" name="book_post[condition]" >
+  <option value="New">New</option>
+  <option value="Very Good">Very Good</option>
+  <option value="Acceptable">Acceptable</option>
+</select>
+    </td>
+
+
+   <td>  <br/>
+   <label for="book_post_course">course <small>(dept &amp; number)</small></label><br/><br/>
+   <%= text_field :book_post, :course %>
+</td>
+
+   </tr>
+   </table>
+   <table class="searchtable" align="center"><tr><td>
+<br /><br/>
+  <label for="book_post_comments">comments  <small>(optional - we'll provide book details from ISBN info)</small></label><br/><br/>
+<%= text_area 'book_post', 'comments', :size => "40x3" %>
+
+       </td></tr>
+       <tr style="text-align:right;"><td><br/>
+       <%= link_to '<img src="http://www.xiggit.com/images/cancel.png">', {:controller => 'book_post', :action => 'list'} %>
+       <input type="image" src="http://www.xiggit.com/images/createbutton.png" name="submit" id="newpost" style="margin-left:15px; margin-right:8px; "/>
+       </td></tr>
+
+ </table>
+  </fieldset>
+
+  <%= hidden_field 'book_post', 'school_name', :value => @current_user.school_name %>
+  <%= hidden_field 'book_post', 'uid', :value => @current_user.facebook_id  %>
+</form>
+
+</div>
+
+
+</div>
+

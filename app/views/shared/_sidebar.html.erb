@@ -1,0 +1,22 @@
+<ul id="sidebar-items">
+
+  <li>
+
+    <h3>Welcome</h3>
+
+    <ul class="links">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><div class="orange" style="font-family:'Delicious Bold';"><%= link_to "Add new book post", {:controller => 'book_post', :action => 'new' }, :id => "newpostlink" %></div></li>
+      <li><%= link_to 'View all books', book_post_method_path('list') %>
+      <li>Search Listings<%=  text_field :search, :keyword %> </li>
+    </ul>
+  </li>
+
+   <%= render :partial => 'user/bookbag' %>
+
+ <%= render :partial => 'user/checklist' %>
+
+<%= render :partial => 'user/myposts' %>
+
+
+</ul>

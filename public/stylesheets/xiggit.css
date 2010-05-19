@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+font-family: "Delicious Heavy";
+src: url(http://www.xiggit.com/fonts/Delicious-Heavy.otf) format("opentype");
+}
+
+@font-face {
+font-family: "Delicious Roman";
+src: url(http://www.xiggit.com/fonts/Delicious-Roman.otf) format("opentype");
+}
+
+@font-face {
+font-family: "Delicious Bold";
+src: url(http://www.xiggit.com/fonts/Delicious-Bold.otf) format("opentype");
+}
+
+h1 {
+	font-family: "Delicious Heavy", sans-serif;
+	font-size:96px;
+	color:#114b65;
+	line-height:50%;
+}
+
+
+#wrapper3{
+	text-align:center;
+	margin-top:40px;
+}
+
+
+.deliciousheavy {
+	font-family: "Delicious Heavy", sans-serif;
+	color:#114b65;
+}
