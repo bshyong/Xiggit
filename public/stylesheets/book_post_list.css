@@ -57,13 +57,12 @@ table#book_posts_details {
     font-size:16px;
     text-align:left;
     margin-top:-3px;
-    margin-bottom:-12px;
-     margin-left: -35px;
+    margin-bottom:-14px;
+    margin-left: -35px;
     border-collapse:collapse;
     /* color:#7799bb; */
     color:#526e8a;
     width:700px;
-    border-bottom:1px solid #ccc;
 }
 
 table#book_posts_details td{
@@ -77,10 +76,6 @@ table#book_posts {
     margin-left: -35px;
     border-collapse:collapse;
     border-top:medium solid orange;
-    /*border-top:1px solid #ccc;*/
-    /* color:#7799bb;
-    color:#5d8bba;
-        color:#5e758d; */
     width:700px;
     color:#114b65;
 }

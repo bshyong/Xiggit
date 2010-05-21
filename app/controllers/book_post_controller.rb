@@ -1,11 +1,11 @@
 class BookPostController < ApplicationController
 
- before_filter :require_current_user
-
-  layout 'application'
+  before_filter :require_current_user
+ layout 'application'
   
 	def list
  @book_posts = BookPost.paginate_by_school_name @current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
+  @book_bag = find_bag
   end
 
  	def show
@@ -16,6 +16,7 @@ class BookPostController < ApplicationController
 	end
   
 	def new
+      @book_bag = find_bag
 	end
 
   
@@ -51,4 +52,12 @@ class BookPostController < ApplicationController
 		end
 		render :partial => 'courses'
 	end
+
+    private #anything under this line is prevented from being called as an action on the controller
+
+    def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
+        session[:book_bag] ||= BookBag.new
+    end
+
+
 end

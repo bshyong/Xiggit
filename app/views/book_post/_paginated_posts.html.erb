@@ -1,33 +1,18 @@
-<%= stylesheet_link_tag 'book_post_list'  %>
 
-  <script type="text/javascript">
-<% @book_posts.each do |b| -%>
-
-  function show_details_<%= b.id %>() {
-    Effect.BlindDown('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
-  //  Effect.Appear('details_<%= b.id %>', {duration:1.0});
-    $('hide_details_link_<%=  b.id %>').style.display = 'inline';
-    $('show_details_link_<%=  b.id %>').style.display = 'none';
-  }
-  function hide_details_<%= b.id %>() {
-    Effect.BlindUp('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
-  //     Effect.Fade('details_<%= b.id %>', {duration:0.5});
-    $('hide_details_link_<%=  b.id %>').style.display = 'none';
-    $('show_details_link_<%=  b.id %>').style.display = 'inline';
-  }
-  <% end -%>
-</script>
 
 
 <div id="wrap_list">
-<div id="list_body" class="deliciousbold"><div style="text-align:center; margin-bottom:10px;">current listings in the underground market at <%= @current_user.school_name %>
-
-</div>
+<div id="list_body" class="deliciousbold">
 <% if @book_posts.blank? %>
 <br />
 There are no posts at the moment.  Be the first to list your book!
 
 <% else %>
+
+<div id="paginated_posts">
+
+
+
 
 <div class="sort_links">
   <% if params[:order] == "price ASC" %>
@@ -55,6 +40,26 @@ There are no posts at the moment.  Be the first to list your book!
 </div>
 
 <% @book_posts.each do |b| -%>
+
+    <script type="text/javascript">
+
+  function show_details_<%= b.id %>() {
+    Effect.BlindDown('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
+  //  Effect.Appear('details_<%= b.id %>', {duration:1.0});
+    $('hide_details_link_<%=  b.id %>').style.display = 'inline';
+    $('show_details_link_<%=  b.id %>').style.display = 'none';
+  }
+  function hide_details_<%= b.id %>() {
+    Effect.BlindUp('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
+  //     Effect.Fade('details_<%= b.id %>', {duration:0.5});
+    $('hide_details_link_<%=  b.id %>').style.display = 'none';
+    $('show_details_link_<%=  b.id %>').style.display = 'inline';
+  }
+
+</script>
+
+
+
           <table id="book_posts" align="center">
 
 
@@ -79,18 +84,7 @@ There are no posts at the moment.  Be the first to list your book!
                 <small> course:</small> <%= b.course -%>
 
               </td>
-           <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
-
-             <div style="margin-right:15px;float:right;">
-
-<%# form_remote_tag :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id } do %>
-    <%#= submit_tag "Add to bag" %>
-             <%# end %>
-<div style="font-family:'Delicious Bold';border:solid 2px #114b65;text-align:center;padding:2px 5px;"
-               <%= link_to_remote 'Add to bag', :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id }, :html_options => {:class => 'button'} %>
-             </div>
-             </div>
-           </td>
+           <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span></td>
          </tr>
 
           </table>
@@ -137,7 +131,7 @@ There are no posts at the moment.  Be the first to list your book!
 
 </div>
 </div>
-
+</div>
 
 
 

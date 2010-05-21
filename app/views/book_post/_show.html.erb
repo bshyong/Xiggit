@@ -1,18 +1,43 @@
 <hr />
-<h2><%= @book_post.title %></h2>
+<div style ="font-family:'Delicious Bold'; font-size:24px;"><%= @book_post.title %></div>
 <p>
-<strong>Author: </strong> <%= @book_post.author %><br />
-<strong>ISBN: </strong> <%= @book_post.isbn %><br />
-<strong>Publisher: </strong> <%= @book_post.publisher %><br />
-<strong>Year: </strong> <%= @book_post.year %><br />
-<strong>Edition: </strong> <%= @book_post.ed %><br />
-<strong>Date Posted:</strong> <%= @book_post.created_at %><br />
-
-<strong>Course: </strong> <%= @book_post.course %><br />
-<strong>Price: </strong> <%= number_to_currency(@book_post.price) %><br />
-<strong>Condition: </strong> <%= @book_post.condition %><br />
-</p>
-<p><strong>Comments: </strong> <%= @book_post.comments %></p>
+<table><tr>
+<td>
+Author:  <%= @book_post.author %>
+</td>
+<td>
+Year:  <%= @book_post.year %>
+ </td>
+<tr><td>
+ISBN:  <%= @book_post.isbn %>
+    </td>
+  <td>
+  <% unless @book_post.ed.blank? %>
+Edition:  <%= @book_post.ed %>
+  <% end %>
+  </td>
+</tr>
+  <tr><td>
+      Publisher:  <%= @book_post.publisher %>
+    </td>
+    <td>
+ Condition:  <%= @book_post.condition %>
+    </td>
+  </tr>
+  <tr><td>
+      <br />
+    </td></tr>
+  <tr style="font-family:'Delicious Bold';"><td>
+Course:  <%= @book_post.course %>
+    </td>
+    <td>
+Price:  <%= number_to_currency(@book_post.price) %>
+    </td></tr>
+  <tr><td>
+      Posted <%= (Time.now.to_i - Time.at(@book_post.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= @book_post.created_at.strftime('%A, %B, %d, %Y') %>
+    </td> </tr>
+</table>
+<p>Comments:  <%= @book_post.comments %></p>
 <hr />
 <h3>Link_to EDIT</h3>
 <h3>Link_to DELETE</h3>

@@ -1,0 +1,3 @@
+# TODO Operate on the page object
+page.replace_html("book_bag", :partial => 'user/bookbag', :object => @book_bag)
+page.visual_effect(:highlight, params[:id], :duration => 1.3)

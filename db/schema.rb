@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100519031932) do
+ActiveRecord::Schema.define(:version => 20100520081922) do
 
   create_table "book_posts", :force => true do |t|
     t.string   "isbn"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20100519031932) do
   add_index "book_posts", ["condition"], :name => "condition_ix"
   add_index "book_posts", ["course"], :name => "course_ix"
   add_index "book_posts", ["created_at"], :name => "created_at_ix"
+  add_index "book_posts", ["id"], :name => "bp_id_ix"
+  add_index "book_posts", ["isbn"], :name => "isbn_ix"
   add_index "book_posts", ["price"], :name => "price_ix"
   add_index "book_posts", ["school_name"], :name => "school_name_ix"
   add_index "book_posts", ["uid"], :name => "uid_ix"

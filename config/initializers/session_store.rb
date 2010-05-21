@@ -5,8 +5,8 @@
 # Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
-  :key         => '_facebooker_on_rails_session',
-  :secret      => '292056c733b15e54e0c6bf56caff40a90004cde4ec1801645895fd930191ef384c4036609d4b4e4c7f44951ed872d9b9876b92444e7c66ebdec9986f076967d7'
+  :key         => '_xiggit_session',
+  :secret      => '2da0cb004e86b0cacca218e38479b4c9f7ceefd0db097e6a9f2617573afdd99f57808d0d6f726d75cb3cfb40c19a410b7c1c901653cd2e3bf336b21870d56aba'
 }
 
 # Use the database for sessions instead of the cookie-based default,

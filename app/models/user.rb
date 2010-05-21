@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     belongs_to :school
     has_many :book_posts
     has_many :courses
+    
 
   #
   # Borrowed from facebooker_authentication plugin.

@@ -1,3 +1,4 @@
+<% if @current_user.new == 0 %>
 <% content_for :header do %>
   <div style="display:none;"><h1>Getting Started</h1></div>
 <% end  %>
@@ -30,3 +31,45 @@
     </li>
   </ol>
 
+    <div style="font-family:'Delicious Roman'; float:right; margin-right:35px;">
+    <%= link_to 'Don\'t show this page again', :controller => 'user', :action => 'hide_help' %>
+    </div>
+
+<% else %>
+<% content_for :header do %>
+  <div style="display:none;"><h1>Please Log In</h1></div>
+<% end  %>
+
+
+  <h2>Welcome to Xiggit - the college student marketplace! </h2>
+    <h3>Please login by clicking the button below.</h3>
+
+  <ol>
+    <li>
+      <h2>Book bag</h2>
+      <p>Your book bag is located in the user panel on the left.  When you use the <%= link_out_to 'price comparison tool', '#' %> or search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %>, you can add books to your bag by clicking the |SAVE/ADD| icon.</p>
+    </li>
+
+    <li>
+      <h2>Course checklist</h2>
+      <p>In the user panel, you can also create a checklist of courses to make sure you don't forget to buy books for one of them.
+      </p>
+    </li>
+
+    <li>
+      <h2>Feedback</h2>
+      <p>Vote on features and suggest new ones by clicking on the blue feedback tab on the left.
+        We'd love to hear from you!   <%#= mail_to "feedback@xiggit.com", "feedback@xiggit.com", :encode => "javascript" %>  </p>
+    </li>
+
+       <li>
+    <h2>Tell all your friends!</h2>
+    <p>Xiggit needs your help in becoming the quickest, easiest way to buy and sell textbooks.  Share the love!  </p>
+    </li>
+  </ol>
+
+    <div style="font-family:'Delicious Roman'; float:right; margin-right:35px;">
+    <%= link_to 'Don\'t show this page again', :controller => 'user', :action => 'hide_help' %>
+    </div>
+
+<% end %>

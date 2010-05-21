@@ -48,7 +48,6 @@ body {
 #page {
   background-color: white;
   width: 950px;
-  margin: 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -180,6 +179,7 @@ body {
 
 #sidebar a{
     text-decoration:none;
+    color:#114b65;
 }
 
 #sidebar a:hover{
@@ -192,6 +192,10 @@ body {
 }
 
 div.orange a {
+    color:#ff8400;
+}
+
+div#new_post_link a {
     color:#ff8400;
 }
 
@@ -231,4 +235,14 @@ h3 {
   border: 1px solid #ccc;
   padding: 10px;
   overflow: auto;
+}
+
+#notice {
+  margin-top:10px;
+  font-size:18px;
+  font-family:'Delicious Bold';
+  border: 2px solid #FFA812;
+  padding: 10px;
+  overflow: auto;
+  text-align:center;
 }

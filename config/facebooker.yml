@@ -33,6 +33,7 @@ test:
     public_port: 4007
     local_port: 3000
 
+# ping ping bang
 production:
   api_key: ac3103824b7267f8fc848284e7c092fc
   secret_key: d04c692ec850d034b83ff9cc8b78f4ed

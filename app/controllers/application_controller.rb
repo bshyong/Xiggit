@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 
   def require_current_user
     return true if @current_user
-    flash[:goto_url] = request.url
+  #  flash[:goto_url] = request.url
     redirect_to connection_required_url
   end
 
@@ -73,6 +73,21 @@ unless ActionController::Base.consider_all_requests_local
     notify_hoptoad(exception)
     render :template => "/error/500.html.erb", :status => 500
   end  
+
+
+def fading_flash_message(text, seconds=5)
+  text +
+    <<-EOJS
+      <script type='text/javascript'>
+        Event.observe(window, 'load',function() {
+          setTimeout(function() {
+            message_id = $('notice') ? 'notice' : 'error';
+            new Effect.Fade(message_id, {from: 1, to: 0 });
+          }, #{seconds*1000});
+        }, false);
+      </script>
+    EOJS
+end
 
 
 end

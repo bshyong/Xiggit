@@ -1,0 +1,201 @@
+/* The Delicious family of fonts was created by Jos Buivenga (exljbris) -> www.exljbris.com */
+
+@font-face {
+font-family: "Delicious Heavy";
+src: url(http://www.xiggit.com/fonts/Delicious-Heavy.eot);
+src: local("Delicious Heavy"), url(http://www.xiggit.com/fonts/Delicious-Heavy.otf) format("opentype");
+}
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+
+@font-face {
+font-family: "Delicious Roman";
+src: url('http://www.xiggit.com/fonts/Delicious-Roman.eot');
+src: local("Delicious Roman"), url(http://www.xiggit.com/fonts/Delicious-Roman.otf) format("opentype");
+}
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+
+@font-face {
+font-family: 'Delicious Bold';
+src: url('http://www.xiggit.com/fonts/Delicious-Bold.eot');
+src: local("Delicious-Bold"), url(http://www.xiggit.com/fonts/Delicious-Bold.otf) format("opentype");
+}
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+
+.deliciousbold {
+    font-family: 'Delicious Bold', "Verdana", sans-serif;
+}
+
+.deliciousroman {
+    font-family: 'Delicious Roman', "Verdana", sans-serif;
+}
+
+.deliciousheavy {
+	font-family: "Delicious Heavy", "Verdana", sans-serif;
+	/*color:#114b65;*/
+}
+
+
+body {
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0;
+  background-color: white;
+  font-family: "Delicious Roman",  "Verdana", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+#page {
+  background-color: white;
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
+
+#main-wrapper {
+  background-color: white;
+/*  border: 10px solid #aaa;
+  border-top: none;*/
+  padding: 0px 25px 25px 25px;
+  width: 650px;
+}
+
+
+#footer {
+  /*clear: both;*/
+  text-align: center;
+  padding-top: 1em;
+  /*margin-right: 225px;*/
+  font-size: 80%;
+}
+
+#footer li {
+    display:inline;
+    padding:0 5px;
+}
+
+
+#header {
+  padding-left: 75px;
+  padding-right: 30px;
+}
+
+
+#header {
+  min-height: 114px;
+}
+#header h1, #header h2 {margin: 0}
+#header h2 {
+  color: #888;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+#content {
+  margin: 0px 0px 0px 25px;
+  padding-top: 5px;
+}
+
+#content h2 {
+  font-family: "Delicious Bold", "Arial", sans-serif;
+}
+
+#content h3 {
+    font-family: "Delicious Roman", "Verdana", sans-serif;
+}
+
+#content p {
+    font-family: "Delicious Roman", "Verdana", sans-serif;
+    line-height:150%;
+}
+
+
+#content ol {
+  margin: 0;
+}
+
+#content ol li {
+  margin-bottom: 1em;
+}
+
+#content h3 {
+    line-height:0%;
+}
+
+#comments {
+  border-top: 1px solid #ccc;
+  margin: 25px 0 0 25px;
+  padding-top: 5px;
+}
+
+#search {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 11px;
+}
+#search input {
+  font-size: 11px;
+  margin: 2px;
+}
+#search-text {width: 170px}
+
+div.orange a {
+    color:#ff8400;
+}
+
+/*******************************************************************************************/
+
+hr {
+  border :none;
+  border-top: 1px solid #ccc;
+  padding: 0;
+  margin: 10px 0;
+}
+
+small, .small {
+  font-size: 85%;
+}
+
+#fb_connect {
+  margin-top: 1em;
+}
+
+#fb_connect .connected img.profile_pic {
+  float: left;
+  margin-right: 10px;
+}
+
+#fb_connect .connected {
+  font-size: 90%;
+}
+
+/*******************************************************************************************/
+
+h3 {
+  margin: 1em 0 0 0;
+}
+
+.boxed {
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow: auto;
+}
+
+#notice {
+  margin-top:10px;
+  font-size:18px;
+  font-family:'Delicious Bold';
+  border: 2px solid #FFA812;
+  padding: 10px;
+  overflow: auto;
+  text-align:center;
+}
+
+div.instructions {
+    text-align:center;
+    width:650px;
+    margin-left:auto;
+    margin-right:auto;
+}

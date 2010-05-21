@@ -1,9 +1,11 @@
   <h1>Connection Required</h1>
-  <h2>The page you tried to access requires that you first be connected to this site.</h2>
+  <div class="instructions">
+  <h2>You must be connected to this site to access the page.</h2>
 
-<div class="step-by-step">
-<ol>
-  <li><h2>Please connect using the 'Connect' button at the top right of this page.</h2></li>
-  <li><h2>Then, <%= link_to 'click here', @goto_url %> to visit the page you tried to access.</h2></li>
-</ol>
+<h3>Please connect using the 'Connect' button below.</h3>
+<br /><br />
+
+ <%= fb_login_button remote_function(:update => 'fb_connect', :url => login_path, :complete => 'FB.XFBML.Host.parseDomTree()'), :size => :large, :background => :white, :length => :long %>
+
+<br /><br />
 </div>

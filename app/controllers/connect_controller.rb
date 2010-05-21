@@ -15,8 +15,11 @@ class ConnectController < ApplicationController
       unless User.find_by_facebook_id(@current_user.facebook_session.user.id).last_name != nil
         User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:last_name, @current_user.facebook_session.user.last_name)
         end
-      
-      render :partial => 'shared/fb_connect'
+
+     render :update do |page|
+         page.redirect_to(:controller => 'home', :action => 'index')
+     end
+
   end
 
   def logout
@@ -25,7 +28,13 @@ class ConnectController < ApplicationController
     clear_facebook_session_information
 
     redirect_to root_path and return unless request.xhr?
-    render :partial => 'shared/fb_connect'
+
+    #render :partial => 'shared/fb_connect'
+
+      render :update do |page|
+          page.replace 'page', :partial => 'home/logged_out'
+      end
+
   end
 
   # http://wiki.developers.facebook.com/index.php/Post-Remove_URL
@@ -35,7 +44,8 @@ class ConnectController < ApplicationController
   end
 
   def connection_required
-    @goto_url = flash[:goto_url] || root_path
+   # @goto_url = flash[:goto_url] || root_path
+    render :layout => 'login'
   end
 
   def publish_user_actions
