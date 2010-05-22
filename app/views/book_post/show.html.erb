@@ -1,0 +1,89 @@
+<hr />
+<div style ="font-family:'Delicious Bold'; font-size:24px;">
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :title %>
+         <% else %>
+        <%= @book_post.title %>
+        <% end %>
+</div>
+<p>
+<table><tr>
+<td>
+Author:  <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :author %>
+         <% else %>
+        <%= @book_post.author %>
+        <% end %>
+</td>
+<td>
+Year:
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :year %>
+         <% else %>
+        <%= @book_post.year %>
+        <% end %>
+ </td>
+<tr><td>
+ISBN:  <%= @book_post.isbn %>
+    </td>
+  <td>
+    Edition:
+    <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :ed %>
+         <% else %>
+    <%= @book_post.ed %>
+    <% end %>
+  </td>
+</tr>
+  <tr><td>
+      Publisher:
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :publisher %>
+         <% else %>
+        <%= @book_post.publisher %>
+        <% end %>
+    </td>
+    <td>
+ Condition:  <%= @book_post.condition %>
+    </td>
+  </tr>
+  <tr><td>
+      <br />
+    </td></tr>
+  <tr style="font-family:'Delicious Bold';">
+    <td>
+Course:  <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :course %>
+         <% else %>
+        <%= @book_post.course %>
+        <% end %>
+    </td>
+    <td>
+  Price: <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :price %>
+         <% else %>
+        <%= number_to_currency(@book_post.price) %>
+        <% end %>
+    </td></tr>
+  <tr><td>
+      Posted <%= (Time.now.to_i - Time.at(@book_post.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= @book_post.created_at.strftime('%A, %B, %d, %Y') %>
+    </td> </tr>
+</table>
+<p>Comments:
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :comments, {}, {:rows => 3} %>
+         <% else %>
+        <%= @book_post.comments %>
+        <% end %>
+
+
+</p>
+<hr />
+<% unless @book_post.uid != @current_user.facebook_id %>
+<div style="float:left;">
+<h3>Click on items to edit</h3>
+</div>
+<div style="float:left;margin-left:100px;">
+<h3>Click here to delete</h3>
+</div>
+<% end %>

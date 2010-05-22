@@ -1,0 +1,13 @@
+
+<div id="warning">IMPORTANT: <div style="font-family:'Delicious Bold';display:inline;font-size:18px;color:black;">You won't be able to contact sellers and buyers <br />until you enter an email address!<br />
+  <%= error_messages_for 'user', :message => 'something is wrong' %>
+  </div>
+
+            <% form_remote_tag(:url => {:controller => 'user', :action => 'save_email'},
+    :html => {:id => 'email_form'}) do %>
+<%= label('email', 'email', 'Enter your email here:') %><%= text_field 'email', 'to_s'  %>
+<%= submit_tag 'Confirm' %>
+<% end %>
+
+
+          </div>
