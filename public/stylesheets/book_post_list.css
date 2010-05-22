@@ -51,6 +51,7 @@ small {
 
 img {
 	border:none;
+        vertical-align:-2px;
 }
 
 table#book_posts_details {
@@ -257,4 +258,9 @@ div#homeschool {
     letter-spacing:1px;
     font-size:16px;
     line-height:100%;
+}
+
+div#logout_link a{
+    font-family:'Delicious Bold';
+    font-size:16px;
 }

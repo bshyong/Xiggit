@@ -1,3 +1,9 @@
 <h1><%= "views/home/home.html " %>  <br /><br />
   This screen is the default page for users that clicked "don't show this again" on the getting started page.</h1>
 <h2>Add a redirect_to in the HOME controller to default to another action</h2>
+
+<% if @current_user.email == nil || @current_user.email.blank? %>
+<h2>You haven't entered an email address!</h2>
+<% else %>
+<h2>Your email address is <%=h @current_user.email %></h2>
+<% end %>

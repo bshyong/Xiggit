@@ -41,10 +41,13 @@ class BookPost < ActiveRecord::Base
     self.title = @data["list"][0]["title"]
 		self.author = @data["list"][0]["author"]
 		self.publisher = @data["list"][0]["publisher"]
-		self.ed = @data["list"][0]["ed"]
 		self.year = @data["list"][0]["year"].to_i
+    self.ed = @data["list"][0]["ed"]
+    self.ed ||= 'n/a'.to_s
+# conditional assignment sets edition to "n/a" if the hash didn't provide a value
 
-      #for some reason, isbns are returning invalid when using cb
+
+      #for some reason, isbns are returning invalid when using cb, so temporary switch back to WorldCat
 #    self.isbn = @data["isbn13"]
 #    self.title = @data["title"]
 #    self.author = @data["author"]

@@ -15,10 +15,33 @@ class UserController < ApplicationController
         User.find_by_facebook_id(@current_user.facebook_id).update_attribute(:new, 0)
         
         redirect_to :controller => 'home', :action => 'home'
-        flash[:notice] = fading_flash_message("Done.  There is help link at the bottom of the page if you ever need it.", 5)
+        flash[:notice] = fading_flash_message("Done.  There's a help link at the bottom of the page if you need it.", 5)
     end
 
-end
+    def save_email
+
+
+    @email = params[:email].fetch('to_s')
+
+    @email_save = User.find_by_facebook_id(@current_user.facebook_id).update_attributes(:email => @email)
+
+        if @email_save
+          render :update do |page|
+            page.replace 'warning', :partial => 'user/save_email'
+            page.visual_effect :highlight, 'notice'
+            page.visual_effect :fade, 'notice', :duration => 1.0, :from => 1.0, :to => 0.0, :delay => 2.5
+          end
+
+          else
+              render :update do |page|
+            page.replace 'warning', :partial => 'user/save_email_failed'
+            page.visual_effect :highlight, 'warning'
+              end
+          end
+
+        end
+    end
+
 
 
 

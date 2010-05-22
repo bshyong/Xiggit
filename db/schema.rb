@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100520081922) do
+ActiveRecord::Schema.define(:version => 20100521015338) do
 
   create_table "book_posts", :force => true do |t|
     t.string   "isbn"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20100520081922) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "new"
+    t.string   "email"
   end
 
   add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id"

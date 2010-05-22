@@ -1,14 +1,31 @@
 class BookPostController < ApplicationController
 
-  before_filter :require_current_user
+ before_filter :require_current_user
  layout 'application'
-  
+
+ skip_before_filter :verify_authenticity_token, :except => [:list, :show, :show_partial, :create, :new, :edit, :update, :delete]
+
+ in_place_edit_for :book_post, :title
+ in_place_edit_for :book_post, :author
+ in_place_edit_for :book_post, :year
+ in_place_edit_for :book_post, :ed
+ in_place_edit_for :book_post, :publisher
+ in_place_edit_for :book_post, :course
+ in_place_edit_for :book_post, :price
+ in_place_edit_for :book_post, :comments
+
 	def list
  @book_posts = BookPost.paginate_by_school_name @current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
   @book_bag = find_bag
   end
 
  	def show
+		@book_post = BookPost.find(params[:id])
+    # users need to be able to access mailers & messaging functions here
+    # messaging functions should be disabled when showing own posts
+	end
+
+  	def show_partial
 		@book_post = BookPost.find(params[:id])
     render :partial => 'book_post/show'
     # users need to be able to access mailers & messaging functions here

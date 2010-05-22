@@ -1,9 +1,8 @@
 <li>
-    <h3>Course Checklist</h3>
 
-
-    <ul class="links" id="checklist">
-      <% unless @current_user == nil %>
+    <% unless @current_user == nil %>
+    <h3>My Checklist</h3>
+    <ul class="links" id="checklist"> 
        <% Course.find_all_by_uid(@current_user.facebook_id).each do |c| %>      
       <li id="<%= c.name %>">
 <%= check_box_tag(c.name, 1, checked(Course.find_by_name_and_uid(c.name, @current_user.facebook_id)),
@@ -17,23 +16,24 @@
         <% if checked(Course.find_by_name_and_uid(c.name, @current_user.facebook_id)) %>
           Done!&nbsp;&nbsp;|&nbsp;
           <% end %>
-    <%= link_to_remote "Delete", {:update => c.name, :confirm => 'Are you sure you want to delete ' + c.name + '?', :url => { :controller => 'course', :action => 'delete', :course_name => c.name }} %>
+    <%= link_to_remote "Delete", {:update => c.name, :confirm => 'Are you sure you want to delete [ ' + c.name + ' ]?', :url => { :controller => 'course', :action => 'delete', :course_name => c.name }} %>
       </div>
       </li>
+
       <% end %>
-   
+
 <li>
 
-  <div id="add_link"><%= link_to_function("Add a course",
-"Element.remove('add_link'); Element.show('add_course'); Element.remove('empty_list')")%></div>
+  <div id="add_link"><%= link_to_function("Add a course or book title",
+"Element.hide('add_link'); Element.show('add_course'); Element.remove('empty_list')")%></div>
 <div id="add_course" style="display:none;">
 <% form_remote_tag(:url => {:controller => 'course', :action => 'create'},
     :update => "checklist", :position => :top,
     :html => {:id => 'cl_form'},
     :complete => visual_effect(:highlight, 'new_course', :duration => 1.2)) do %>
-<div style="font-family:'Delicious Bold';">Add a course:</div> <%= text_field 'course', 'name' %>
+<div style="font-family:'Delicious Bold';">Add a course or book title:</div> <%= text_field 'course', 'name' %>
   <%= hidden_field 'course', 'uid', :value => @current_user.facebook_id  %>
-<%= submit_tag 'Add' %>
+<%= submit_tag 'Add' %><%= button_to_function("Cancel","Element.hide('add_course');Element.show('add_link');") %>
 <% end %>
 </div>
 </li>

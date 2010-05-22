@@ -55,8 +55,6 @@ body {
 #main-wrapper {
   float: left;
   background-color: white;
-/*  border: 10px solid #aaa;
-  border-top: none;*/
   padding: 0px 25px 25px 25px;
   width: 650px;
 }
@@ -71,7 +69,6 @@ body {
   clear: both;
   text-align: center;
   padding-top: 1em;
-  /*margin-right: 225px;*/
   font-size: 80%;
 }
 
@@ -104,6 +101,11 @@ body {
   margin: 0px 0px 0px 25px;
   padding-top: 5px;
 }
+
+#content a:visited{
+  color:#114b65;
+}
+
 
 #content h2 {
   font-family: "Delicious Bold", "Arial", sans-serif;
@@ -241,7 +243,19 @@ h3 {
   margin-top:10px;
   font-size:18px;
   font-family:'Delicious Bold';
-  border: 2px solid #FFA812;
+  border: 2px solid green;
+  padding: 10px;
+  overflow: auto;
+  text-align:center;
+}
+
+#warning {
+  margin-top:10px;
+  margin-bottom:10px;
+  font-size:20px;
+  font-family:'Delicious Heavy';
+  color:red;
+  border: 3px solid #FFA812;
   padding: 10px;
   overflow: auto;
   text-align:center;

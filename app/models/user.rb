@@ -15,4 +15,15 @@ class User < ActiveRecord::Base
       Facebooker::Session.current = session
     end
   end
+
+
+
+validates_presence_of     :email, :message => 'email cannot be blank!'
+validates_length_of       :email,    :within => 3..100
+validates_format_of :email,
+    :with => /^([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i
+validates_uniqueness_of   :email, :case_sensitive => false, :message => 'that email is already in use!'
+attr_accessible  :email
+
+
 end

@@ -3,7 +3,7 @@
     <ul class="links">
 <% if @current_user %>
       <% BookPost.find_all_by_uid(@current_user.facebook_id).each do |b| %>
-      <li><%= link_to_remote truncate(b.title, :omission => "...", :length => 28), :update => 'content', :url => { :controller => 'book_post', :action => 'show', :id => b.id },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %></li>
+      <li><%= link_to_remote truncate(b.title, :omission => "...", :length => 28), :update => 'content', :url => { :controller => 'book_post', :action => 'show_partial', :id => b.id },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %></li>
       <% end %>
       <% else %>
       <li>There was a problem loading your listings.  Please make sure that you are logged in and refresh the page.</li>

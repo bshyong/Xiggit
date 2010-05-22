@@ -89,8 +89,10 @@ module ActionController #:nodoc:
           request.method == :get      ||
           !verifiable_request_format? ||
           form_authenticity_token == params[request_forgery_protection_token]
-      end
+        end
+
     
+
       def verifiable_request_format?
         !request.content_type.nil? && request.content_type.verify_request?
       end
@@ -105,4 +107,5 @@ module ActionController #:nodoc:
         allow_forgery_protection && request_forgery_protection_token
       end
   end
-end
+  end
+

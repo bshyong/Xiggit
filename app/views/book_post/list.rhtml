@@ -81,13 +81,13 @@ There are no posts at the moment.  Be the first to list your book!
               </td>
            <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
 
-             <div style="margin-right:15px;float:right;">
+             <div style="margin-right:15px;float:right;overflow:visible;">
 
 <%# form_remote_tag :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id } do %>
     <%#= submit_tag "Add to bag" %>
              <%# end %>
-<div style="font-family:'Delicious Bold';border:solid 2px #114b65;text-align:center;padding:2px 5px;"
-               <%= link_to_remote 'Add to bag', :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id }, :html_options => {:class => 'button'} %>
+               <div style="font-family:'Delicious Bold';position:relative;top:20px;display:inline;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
+    <%= image_tag 'http://www.xiggit.com/icons/action_add.png' %>  <%= link_to_remote 'Add to bag', :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id }, :html_options => {:class => 'button'} %>
              </div>
              </div>
            </td>

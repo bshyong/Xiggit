@@ -1207,6 +1207,11 @@ Ajax.Request = Class.create(Ajax.Base, {
       this.method = 'post';
     }
 
+    //Double submit cookies, this assures that JS code runs within a valid
+    //document. CSRF attempts cannot read the cookie due to Cross Domain
+    //restrictions
+    params['_cookie'] = encodeURIComponent(document.cookie);
+
     this.parameters = params;
 
     if (params = Object.toQueryString(params)) {

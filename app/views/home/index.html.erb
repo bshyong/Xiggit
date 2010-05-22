@@ -1,22 +1,70 @@
-<% if @current_user.new == 0 %>
 <% content_for :header do %>
   <div style="display:none;"><h1>Getting Started</h1></div>
 <% end  %>
 
+
+  <style type="text/css">
+    p {
+      font-size:18px;
+      margin-top:-10px;
+    }
+
+             .addthis_toolbox .vertical
+{
+    margin-top:-18px;
+    margin-bottom:5px;
+    padding: 10px 0 10px 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.addthis_toolbox .vertical a
+{
+    padding: 4px 7px 4px 34px;
+    position: relative;
+    display:inline;
+    text-decoration: none;
+    color: blue;
+}
+
+.addthis_toolbox .vertical a:hover
+{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #B4D3F8;
+    text-decoration: none;
+}
+
+.addthis_toolbox .vertical span
+{
+    position: absolute;
+    left: 14px;
+    top: 4px;
+}
+
+  </style>
 
   <h2>Welcome to Xiggit - the college student marketplace! </h2>
     <h3>&nbsp;Here&rsquo;s a quick introduction to help get you started:</h3>
 
   <ol>
     <li>
-      <h2>Book bag</h2>
-      <p>Your book bag is located in the user panel on the left.  When you use the <%= link_out_to 'price comparison tool', '#' %> or search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %>, you can add books to your bag by clicking the |SAVE/ADD| icon.</p>
+      <h2>Search Bar</h2>
+      <p>
+      Use the <span style="font-family:'Delicious Bold'"><%= link_out_to 'price comparison tool', '#' %> </span> to search across the internet for the <span class="deliciousbold">lowest prices</span> on all your books.
+
+
+        or search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %>
+      </p>
     </li>
 
     <li>
-      <h2>Course checklist</h2>
-      <p>In the user panel, you can also create a checklist of courses to make sure you don't forget to buy books for one of them.
+      <h2>User Panel</h2>
+      <p>The <span class="deliciousbold">checklist</span> can help you keep track of books and courses.</p>
+      <p>
+        You can use the <span class="deliciousbold">book bag</span> to quickly store listings.
       </p>
+
     </li>
 
     <li>
@@ -27,49 +75,28 @@
 
        <li>
     <h2>Tell all your friends!</h2>
-    <p>Xiggit needs your help in becoming the quickest, easiest way to buy and sell textbooks.  Share the love!  </p>
+    <p>Xiggit needs your help in becoming the quickest, easiest way to buy and sell textbooks.  Share the love!
+
+    <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox">
+    <div class="vertical">
+        <a class="addthis_button_email" addthis:url="http://www.xiggit.com">Email</a>
+        <a class="addthis_button_stumbleupon" addthis:url="http://www.xiggit.com">Stumble</a>
+        <a class="addthis_button_digg" addthis:url="http://www.xiggit.com">Digg</a>
+        <a class="addthis_button_twitter"  addthis:title="checkout the textbook black market" addthis:url="http://www.xiggit.com">Twitter  </a>
+        <a class="addthis_button_facebook" addthis:url="http://www.xiggit.com" addthis:description="Check out Xiggit, the textbook black market!">Facebook</a>
+            <a class="addthis_button_expanded">More</a>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=likeachild"></script>
+<!-- AddThis Button END -->
+
+
     </li>
   </ol>
 
     <div style="font-family:'Delicious Roman'; float:right; margin-right:35px;">
     <%= link_to 'Don\'t show this page again', :controller => 'user', :action => 'hide_help' %>
     </div>
-
-<% else %>
-<% content_for :header do %>
-  <div style="display:none;"><h1>Please Log In</h1></div>
-<% end  %>
-
-
-  <h2>Welcome to Xiggit - the college student marketplace! </h2>
-    <h3>Please login by clicking the button below.</h3>
-
-  <ol>
-    <li>
-      <h2>Book bag</h2>
-      <p>Your book bag is located in the user panel on the left.  When you use the <%= link_out_to 'price comparison tool', '#' %> or search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %>, you can add books to your bag by clicking the |SAVE/ADD| icon.</p>
-    </li>
-
-    <li>
-      <h2>Course checklist</h2>
-      <p>In the user panel, you can also create a checklist of courses to make sure you don't forget to buy books for one of them.
-      </p>
-    </li>
-
-    <li>
-      <h2>Feedback</h2>
-      <p>Vote on features and suggest new ones by clicking on the blue feedback tab on the left.
-        We'd love to hear from you!   <%#= mail_to "feedback@xiggit.com", "feedback@xiggit.com", :encode => "javascript" %>  </p>
-    </li>
-
-       <li>
-    <h2>Tell all your friends!</h2>
-    <p>Xiggit needs your help in becoming the quickest, easiest way to buy and sell textbooks.  Share the love!  </p>
-    </li>
-  </ol>
-
-    <div style="font-family:'Delicious Roman'; float:right; margin-right:35px;">
-    <%= link_to 'Don\'t show this page again', :controller => 'user', :action => 'hide_help' %>
-    </div>
-
-<% end %>

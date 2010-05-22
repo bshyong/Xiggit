@@ -2,12 +2,15 @@ class HomeController < ApplicationController
 
     layout 'application'
 
+    # this code can probably be refactored by using a :before_filter
+
+
     def index
       if @current_user
          if @current_user.new == 0
             redirect_to :action => 'home'
           else
-
+            @book_bag = find_bag
           end
       else
          redirect_to :action => 'login'
