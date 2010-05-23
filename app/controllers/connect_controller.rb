@@ -16,6 +16,10 @@ class ConnectController < ApplicationController
         User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:last_name, @current_user.facebook_session.user.last_name)
         end
 
+      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).new != nil
+        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:new, '1')
+        end
+
      render :update do |page|
          page.redirect_to(:controller => 'home', :action => 'index')
      end
