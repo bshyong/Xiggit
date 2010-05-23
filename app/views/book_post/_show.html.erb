@@ -79,9 +79,12 @@ Course:  <% if @book_post.uid == @current_user.facebook_id %>
 
 </p>
 <hr />
+<% unless @book_post.uid != @current_user.facebook_id %>
 <div style="float:left;">
 <h3>Click on above items to edit</h3>
 </div>
 <div style="float:left;margin-left:100px;">
-<h3>Click here to delete</h3>
+<h3><%= link_to 'Click here to delete', {:controller => 'book_post', :action => 'delete', :id => @book_post.id}, {:confirm => 'Are you sure you want to delete?  There is no undo.'} %></h3>
 </div>
+<% end %>
+

@@ -1,6 +1,8 @@
 class BookPostController < ApplicationController
 
  before_filter :require_current_user
+ before_filter :email_check, :only => [:new]
+
  layout 'application'
 
  skip_before_filter :verify_authenticity_token, :except => [:list, :show, :show_partial, :create, :new, :edit, :update, :delete]
@@ -51,6 +53,12 @@ class BookPostController < ApplicationController
 	def update
 	end
 	def delete
+
+      @book_post = BookPost.find_by_id(params[:id])
+      @book_post.delete
+      flash[:notice] = fading_flash_message("Book post successfully deleted.", 5)
+      redirect_to :controller => 'home', :action => 'home'
+
       # users should only be able to delete their own posts
       # should we put in an auto-expire option?
 	end
@@ -76,5 +84,10 @@ class BookPostController < ApplicationController
         session[:book_bag] ||= BookBag.new
     end
 
+    def email_check
+        if @current_user.email.nil? || @current_user.email.blank?
+            redirect_to :controller => 'book_post', :action => 'no_email'
+        end
+    end
 
 end

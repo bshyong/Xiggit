@@ -120,7 +120,7 @@ color:red;
 }
 
 #errorExplanation {
-border: solid thin gray;
+/*border: solid thin gray;*/
 margin-bottom: 10px;
 }
 

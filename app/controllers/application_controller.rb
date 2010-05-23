@@ -20,7 +20,7 @@ def set_current_user_email
         @item = User.find_by_facebook_id(@current_user.facebook_id)
         @item.update_attributes(:email => params[:value])
 
-        #validations are being performed, without displaying error messages?
+        #validations are being performed, but no error messages yet..
         render :text => @item.send(:email).to_s
 
 end
