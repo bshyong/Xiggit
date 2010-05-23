@@ -3,8 +3,7 @@ class HomeController < ApplicationController
     layout 'application'
 
     # this code can probably be refactored by using a :before_filter
-
-
+  
     def index
       if @current_user
          if @current_user.new == 0

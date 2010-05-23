@@ -14,6 +14,18 @@ class ApplicationController < ActionController::Base
   before_filter :create_facebook_session
   before_filter :set_current_user
 
+  skip_before_filter :verify_authenticity_token, :only => [:set_current_user_email]
+  
+def set_current_user_email
+        @item = User.find_by_facebook_id(@current_user.facebook_id)
+        @item.update_attributes(:email => params[:value])
+
+        #validations are being performed, without displaying error messages?
+        render :text => @item.send(:email).to_s
+
+end
+
+
   def set_assumptions
     @app_settings = '{}'
   end
