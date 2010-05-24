@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.course_method '/course/:action', :controller => 'course'
   map.login_method 'login/:action', :controller => 'login'
   map.book_bag_method 'book_bag/:action', :controller => 'book_bag'
+  map.notifier_method 'notifier/:action', :controller => 'notifier'
 
   map.debug_splat '/debug-splat', :controller => 'home', :action => 'debug_splat'
  
