@@ -54,7 +54,7 @@
         <% unless request.url == root_url %>
 
           <% if @current_user.email == nil || @current_user.email.blank? %>
-          <div id="warning">IMPORTANT: <div style="font-family:'Delicious Bold';display:inline;font-size:18px;color:black;">You won't be able to contact sellers and buyers <br />until you enter an email address!<br />
+          <div id="warning">IMPORTANT: <div style="font-family:'Delicious Bold';display:inline;font-size:18px;color:black;">You won't be able to contact sellers or post books<br />until you enter an email address!<br />
             </div>
 
             <% form_remote_tag(:url => {:controller => 'user', :action => 'save_email'},

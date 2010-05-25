@@ -1,4 +1,4 @@
-    <li id="<%= @course.name %>">
+ <li id="<%= @course.name %>"> 
 <%= check_box_tag(@course.name, 1, checked(Course.find_by_name_and_uid(@course.name, @current_user.facebook_id)),
     {:onclick => remote_function(
     :update => @course.name,
