@@ -28,7 +28,7 @@ end
 
 def delete
     @course = Course.find_by_name_and_uid(params[:course_name], @current_user.facebook_id)
-    @course.delay.destroy
+    @course.destroy
     render :partial => 'course/delete'
 end
 
