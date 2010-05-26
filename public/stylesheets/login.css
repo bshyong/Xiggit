@@ -3,14 +3,14 @@
 @font-face {
 font-family: "Delicious Heavy";
 src: url(http://www.xiggit.com/fonts/Delicious-Heavy.eot);
-src: local("Delicious Heavy"), url(http://www.xiggit.com/fonts/Delicious-Heavy.otf) format("opentype");
+src: local("Delicious-Heavy"), url(http://www.xiggit.com/fonts/Delicious-Heavy.otf) format("opentype");
 }
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
 
 @font-face {
 font-family: "Delicious Roman";
 src: url('http://www.xiggit.com/fonts/Delicious-Roman.eot');
-src: local("Delicious Roman"), url(http://www.xiggit.com/fonts/Delicious-Roman.otf) format("opentype");
+src: local("Delicious-Roman"), url(http://www.xiggit.com/fonts/Delicious-Roman.otf) format("opentype");
 }
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
 

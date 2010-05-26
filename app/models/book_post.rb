@@ -2,10 +2,13 @@
 #Author: Varun Sampath <vsampath@seas.upenn.edu>
 #Contributor: Benjamin Shyong <bshyong@seas.upenn.edu>
 
+
 require 'net/http'
 #require 'cb'
 
 class BookPost < ActiveRecord::Base
+
+
 
     belongs_to :school
     belongs_to :user
