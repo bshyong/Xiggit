@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.notifier_method 'notifier/:action', :controller => 'notifier'
   
   
-  # this search route may not be needed?
+  # this search route may not be needed...
   map.search_method 'search/:action', :controller => 'search'
 
   map.debug_splat '/debug-splat', :controller => 'home', :action => 'debug_splat'
