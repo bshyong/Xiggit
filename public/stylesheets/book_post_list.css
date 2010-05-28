@@ -18,7 +18,7 @@
 
 small {
 	font-size:16px;
-        font-family: "Delicious Roman";
+        font-family: "Delicious Bold";
 }
 
 #isbn {
@@ -124,7 +124,13 @@ table#book_posts a:link {
 td.top_left {
    padding: 18px 10px 4px 10px;
    font-size:18px;
+   font-family:'Delicious Bold';
 }
+
+td.top_left a:hover{
+   text-decoration:underline;
+}
+
 
 td.bottom_left {
    padding: 0px 10px 8px 10px;
@@ -132,6 +138,7 @@ td.bottom_left {
 
 td.top_right {
    padding: 8px 10px 4px 0px;
+   font-family:'Delicious Bold';
 }
 
 td.bottom_right {
@@ -263,4 +270,19 @@ div#homeschool {
 div#logout_link a{
     font-family:'Delicious Bold';
     font-size:16px;
+}
+
+div.details_link a{
+        color:#114b65;
+        text-decoration:none;
+        font-family:'Delicious Heavy';
+        
+}
+
+div.details_link a:hover{
+        text-decoration:underline;
+}
+
+div.details_link small{
+        color:#ff8400;
 }

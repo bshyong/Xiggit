@@ -62,7 +62,7 @@ There are no posts at the moment.  Be the first to list your book!
               <td class="top_left">
 			<%= link_to b.title, {:action => 'show', :id => b.id} -%>
               </td>
-              <td class="top_right">by <%= b.author -%></td>
+              <td class="top_right">by <%=h b.author -%></td>
             </tr>
 
             <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows2") -%>">
@@ -70,13 +70,18 @@ There are no posts at the moment.  Be the first to list your book!
               </td>
               <td class="bottom_right" style="line-height:50%; font-size:24px;">
 
-                <small>posted <%= (Time.now.to_i - Time.at(b.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= b.created_at.strftime('%A, %B, %d, %Y') %>
+                <small>posted 
+                <% if (Time.now.to_i - Time.at(b.created_at.to_i).to_i)/(60*60*24) == 0 %>
+                today, <%= b.created_at.strftime('%A, %B, %d, %Y') %>
+                <% else %>
+              <% (Time.now.to_i - Time.at(b.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= b.created_at.strftime('%A, %B, %d, %Y') %>
+ <% end %>
  </small>
               </td>
             </tr>
          <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows4") -%>">
           <td class="bottom_left" id="course">
-                <small> course:</small> <%= b.course -%>
+                <small> course:</small> <%=h b.course -%>
 
               </td>
            <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
@@ -120,18 +125,18 @@ There are no posts at the moment.  Be the first to list your book!
 <div id="details_<%= b.id %>" style="display:none;">
   <table align="center" class="post_details_<%= cycle('odd', 'even', :name => "post_details") -%>"  style="color:#0a2f40; "><tr><td>
         <span class="small">Condition: </span> <%= b.condition %><br />
-        <span class="small">Publisher: </span> <%= b.publisher %><br />
+        <span class="small">Publisher: </span> <%=h b.publisher %><br />
 </td>
       <td>
-        <span class="small">Year: </span> <%= b.year %><br />
-<span class="small">Edition: </span> <%= b.ed %><br />
+        <span class="small">Year: </span> <%=h b.year %><br />
+<span class="small">Edition: </span> <%=h b.ed %><br />
 
 
       </td>
     </tr></table>
   <% unless b.comments.blank? %><div id="comments_div">
   <span class="small3">Comments from seller:</span><br/><div id="indented"
- <span class="comments"><%= b.comments %></span></div>
+ <span class="comments"><%=h b.comments %></span></div>
  <% end %>
 </div></div>
 
