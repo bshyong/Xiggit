@@ -103,5 +103,10 @@ def fading_flash_message(text, seconds=5)
     EOJS
 end
 
+    def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
+        session[:book_bag] ||= BookBag.new
+    end
+
+
 
 end
