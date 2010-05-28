@@ -20,3 +20,25 @@ production:
   database: ../../shared/production.sqlite3
   pool: 5
   timeout: 5000
+  
+  ### mySQL
+#development:
+#  adapter: mysql
+#  database: xiggitco_dev
+#  username: xiggitco_master
+#  password: JRaRG0QQBe5Eoj5HcvXY
+#  host: localhost
+#
+#test:
+#  adapter: mysql
+#  database: xiggitco_test
+#  username: xiggitco_master
+#  password: JRaRG0QQBe5Eoj5HcvXY
+#  host: localhost
+#
+#production:
+#  adapter: mysql
+#  database: xiggitco_prod
+#  username: xiggitco_master
+#  password: JRaRG0QQBe5Eoj5HcvXY
+#  host: localhost
