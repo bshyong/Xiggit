@@ -1,0 +1,98 @@
+<hr />
+<div style ="font-family:'Delicious Bold'; font-size:24px;">
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :title %>
+         <% else %>
+        <%=h @book_post.title %>
+        <% end %>
+</div>
+<p>
+<table><tr>
+<td>
+Author:  <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :author %>
+         <% else %>
+        <%=h @book_post.author %>
+        <% end %>
+</td>
+<td>
+Year:
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :year %>
+         <% else %>
+        <%=h @book_post.year %>
+        <% end %>
+ </td>
+<tr><td>
+ISBN:  <%=h @book_post.isbn %>
+    </td>
+  <td>
+    Edition:
+    <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :ed %>
+         <% else %>
+    <%=h @book_post.ed %>
+    <% end %>
+  </td>
+</tr>
+  <tr><td>
+      Publisher:
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :publisher %>
+         <% else %>
+        <%=h @book_post.publisher %>
+        <% end %>
+    </td>
+    <td>
+ Condition:  <%= @book_post.condition %>
+    </td>
+  </tr>
+  <tr><td>
+      <br />
+    </td></tr>
+  <tr style="font-family:'Delicious Bold';">
+    <td>
+Course:  <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :course %>
+         <% else %>
+        <%=h @book_post.course %>
+        <% end %>
+    </td>
+    <td>
+  Price: <% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :price %>
+         <% else %>
+        <%=h number_to_currency(@book_post.price) %>
+        <% end %>
+    </td></tr>
+  <tr><td>
+      Posted <%= (Time.now.to_i - Time.at(@book_post.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= @book_post.created_at.strftime('%A, %B, %d, %Y') %>
+    </td> </tr>
+</table>
+<p>Comments:
+<% if @book_post.uid == @current_user.facebook_id %>
+        <%= in_place_editor_field :book_post, :comments, {}, {:rows => 3} %>
+         <% else %>
+        <%= @book_post.comments %>
+        <% end %>
+
+
+</p>
+<hr />
+<% if @book_post.uid == @current_user.facebook_id %>
+<div style="float:left;">
+<h3>Click on above items to edit</h3>
+</div>
+<div style="float:left;margin-left:100px;">
+<h3><%= link_to 'Click here to delete', {:controller => 'book_post', :action => 'delete', :id => @book_post.id}, {:confirm => 'Are you sure you want to delete?  There is no undo.'} %></h3>
+</div>
+<% else %>
+<% unless @current_user.email.nil? || @current_user.email.blank? %>
+        <div id ="contact_seller_link_<%= @book_post.id %>" style="float:left;position:relative;display:block;border:solid 1px #114b65;text-align:center;padding:3px 7px 5px 7px;background-color:white;">
+                 <%= image_tag 'http://www.xiggit.com/icons/letter.png' %>  <%= link_to_remote 'Contact seller', :url => { :controller => 'notifier', :action => 'contact_seller', :email => User.find_by_facebook_id(@book_post.uid).email, :post_id => @book_post.id, :sender_email => @current_user.email, :sender_name => @current_user.first_name, :book_title => @book_post.title }, :html_options => {:class => 'button'} %>
+             </div>
+<% end %>
+<% end %>
+
+
+

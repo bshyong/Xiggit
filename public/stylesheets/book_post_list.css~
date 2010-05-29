@@ -1,0 +1,288 @@
+
+#info {
+	font-size:18px;
+	letter-spacing:0.5px;
+	line-height:90%;
+	margin-top:10px;
+	padding-top:10px;
+}
+
+
+#wrap3 {
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+}
+
+
+small {
+	font-size:16px;
+        font-family: "Delicious Bold";
+}
+
+#isbn {
+	margin-right:10px;
+}
+
+
+#show {
+	position:relative;
+	top:2px;
+}
+
+
+
+#book_post_comments {
+  font-family: "Delicious Bold", sans-serif;
+  color:#114b65;
+  font-weight:bold;
+  font-size:16px;
+  background-color:#ccefff;
+  border:none;
+  padding:5px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#newpostfields td {
+	padding:0px 18px;
+}
+
+img {
+	border:none;
+        vertical-align:-2px;
+}
+
+table#book_posts_details {
+    font-size:16px;
+    text-align:left;
+    margin-top:-3px;
+    margin-bottom:-14px;
+    margin-left: -35px;
+    border-collapse:collapse;
+    /* color:#7799bb; */
+    color:#526e8a;
+    width:700px;
+}
+
+table#book_posts_details td{
+padding:0px 10px 6px 10px;
+}
+
+table#book_posts {
+    font-size:16px;
+    text-align:left;
+    margin-top:15px;
+    margin-left: -35px;
+    border-collapse:collapse;
+    border-top:medium solid orange;
+    width:700px;
+    color:#114b65;
+}
+
+table#book_posts tr{
+width:700px;
+
+}
+
+table#book_posts td{
+width:350px;
+}
+
+table#book_posts a:link {
+    text-decoration:none;
+        color:#114b65;
+}
+
+#wrap_list {
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+        text-align:center;
+}
+
+#list_body a:visited {
+        text-decoration:none;
+        color:#114b65;
+}
+
+#list_body a:hover {
+    text-decoration:underline;
+}
+
+.list-line-odd {
+    background-color:#e6f7ff;
+
+}
+
+.list-line-even {
+    background-color:#fff;
+
+}
+
+td.top_left {
+   padding: 18px 10px 4px 10px;
+   font-size:18px;
+   font-family:'Delicious Bold';
+}
+
+td.top_left a:hover{
+   text-decoration:underline;
+}
+
+
+td.bottom_left {
+   padding: 0px 10px 8px 10px;
+}
+
+td.top_right {
+   padding: 8px 10px 4px 0px;
+   font-family:'Delicious Bold';
+}
+
+td.bottom_right {
+   padding: 0px 10px 8px 0px;
+}
+
+a#newpostlink:visited {
+    color:#ff8400;
+}
+
+a#newpostlink:link {
+    color:#ff8400;
+}
+
+a#newpostlink:hover {
+    color:#ff8400;
+}
+
+
+
+#course {
+    font-size:18px;
+    color:#000000;
+}
+
+.small2 {
+	font-size:16px;
+        color:#ff8400;
+}
+
+.post_details {
+    padding-top:5px;
+     font-family: "Delicious Roman", sans-serif;
+     font-size:14px;
+font-weight:bold;
+     color:#526e8a;
+}
+
+.price {
+     font-family: "Delicious Roman", sans-serif;
+        font-size:18px;
+        font-weight:bold;
+    color:#000000;
+}
+
+.small {
+    font-size:12px;
+    color:#0a2f40;
+}
+
+.small3 {
+    font-size:16px;
+    color:#000000;
+    font-weight:bold;
+
+}
+
+.comments {
+        font-size:18px;
+        font-weight:normal;
+    color:#114b65;
+}
+
+div.details_link {
+        color:#ff8400;
+}
+
+#course_autocomplete {
+      font-family: "Delicious Roman", sans-serif;
+      line-height:100%;
+      font-size:12px;
+}
+
+.post_details_odd {
+    background-color:#ffffff;
+    padding: 5px;
+border:medium solid #526e8a;
+    width:680px;
+    margin:10px 0px;
+}
+
+.post_details_even {
+    background-color:#ffffff;
+    padding: 5px;
+     margin:10px 0px;
+     width:680px;
+     border:medium solid #526e8a;
+
+}
+
+#comments_div {
+    margin-bottom:8px;
+    margin-top:5px;
+}
+
+#indented {
+    padding:0px 20px;
+}
+
+.sort_links a:link, a:visited {
+    color:#114b65;
+}
+
+.sort_links {
+    font-size:16px;
+    font-family:"Delicious Bold";
+}
+
+span.current {
+    font-size:26px;
+}
+
+big {
+    color:#ff8400;
+}
+
+
+
+div#homeschool {
+    margin: 5px 0px 15px 0px;
+    font-family: "Delicious Roman", sans-serif;
+    color:#114b65;
+    text-align:center;
+    letter-spacing:1px;
+    font-size:16px;
+    line-height:100%;
+}
+
+div#logout_link a{
+    font-family:'Delicious Bold';
+    font-size:16px;
+}
+
+div.details_link a{
+        color:#114b65;
+        text-decoration:none;
+        font-family:'Delicious Heavy';
+        
+}
+
+div.details_link a:hover{
+        text-decoration:underline;
+}
+
+div.details_link small{
+        color:#ff8400;
+}

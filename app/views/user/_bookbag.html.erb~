@@ -1,0 +1,39 @@
+<li>
+  <div id="book_bag">
+
+    <h3>My Book Bag</h3>
+
+    <% if @book_bag == nil || @book_bag.items.empty? %>
+    <ul class="links">
+      <li>Your bookbag is empty.</li>
+    </ul>
+  <% else %>
+ <% for item in @book_bag.items %>
+    <div id="<%= item %>">
+    <table>
+       
+      <tr>
+        <td style="width:180px;">
+
+<%= link_to_remote truncate(BookPost.find_by_id(item).title, :omission => "...", :length => 51), :update => 'content', :url => { :controller => 'book_post', :action => 'show_partial', :id => item },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %>
+
+        </td>
+        <td style="padding-left:10px;">
+          <div style="font-size:12px; font-family:'Delicious Roman';  float:right; display:inline;">
+           <%= link_to_remote "Delete", {:update => item, :confirm => 'Are you sure?', :url => { :controller => 'book_bag', :action => 'remove_from_bag', :id => item }} %>
+        </div>
+        </td>
+      </tr>
+     
+    </table>
+       </div>
+         <% end %>
+    <% end %>
+
+   <% unless @book_bag == nil || @book_bag.items.empty? %>
+    <div style="float:right; font-family:'Delicious Bold'; font-size:12px;">
+  <%= link_to_remote "Empty the bag", {:update => 'book_bag', :confirm => 'Are you sure you want to empty your bookbag?', :url => { :controller => 'book_bag', :action => 'empty_bag' }} %>
+        </div>
+    <% end %>
+  </div>
+  </li>

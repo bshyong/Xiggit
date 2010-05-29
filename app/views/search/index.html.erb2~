@@ -1,0 +1,135 @@
+<%= stylesheet_link_tag 'book_post_list'  %>
+
+  <script type="text/javascript">
+<% @results.each do |b| -%>
+
+  function show_details_<%= b.id %>() {
+    Effect.BlindDown('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
+  //  Effect.Appear('details_<%= b.id %>', {duration:1.0});
+    $('hide_details_link_<%=  b.id %>').style.display = 'inline';
+    $('show_details_link_<%=  b.id %>').style.display = 'none';
+  }
+  function hide_details_<%= b.id %>() {
+    Effect.BlindUp('details_<%= b.id %>', {duration: 0.5}, { queue: { position: 'end', limit: 2 }});
+  //     Effect.Fade('details_<%= b.id %>', {duration:0.5});
+    $('hide_details_link_<%=  b.id %>').style.display = 'none';
+    $('show_details_link_<%=  b.id %>').style.display = 'inline';
+  }
+  <% end -%>
+</script>
+
+
+<div id="wrap_list">
+<div id="list_body"><div style="text-align:center; margin-bottom:10px;font-size:28px;font-family:'Delicious Bold';">Search Results</div>
+
+</div>
+<% if @results.blank? %>
+<br /><div style="border:medium solid black;padding:50px 0px;">
+| Placeholder for retailer results |</div>
+<br /><br />
+Your book couldn't be found in the underground market! <br />Check back later or use our price comparator to search online retailers.
+
+<% else %>
+
+<div style="border:medium solid black;padding:50px 0px;">
+| Placeholder for retailer results |</div>
+
+<div class="sort_links">
+<br />
+  <%= will_paginate @results %>
+</div>
+
+<% @results.each do |b| -%>
+          <table id="book_posts" align="center">
+
+
+            <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows") -%>">
+              <td class="top_left">
+			<%= link_to b.title, {:controller => 'book_post', :action => 'show', :id => b.id} -%>
+              </td>
+              <td class="top_right">by <%= b.author -%></td>
+            </tr>
+
+            <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows2") -%>">
+              <td>
+              </td>
+              <td class="bottom_right" style="line-height:50%; font-size:24px;">
+
+                <small>posted <%= (Time.now.to_i - Time.at(b.created_at.to_i).to_i)/(60*60*24) -%> days ago, on <%= b.created_at.strftime('%A, %B, %d, %Y') %>
+ </small>
+              </td>
+            </tr>
+         <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows4") -%>">
+          <td class="bottom_left" id="course">
+                <small> course:</small> <%= b.course -%>
+
+              </td>
+           <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
+
+             <div style="margin-right:15px;float:right;overflow:visible;">
+               <% if b.uid != @current_user.facebook_id %>
+               <% unless @current_user.email.nil? || @current_user.email.blank? %>
+                     <div style="font-family:'Delicious Bold';float:right;position:relative;top:20px;display:inline;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
+    <%= image_tag 'http://www.xiggit.com/icons/action_add.png' %>  <%= link_to_remote 'Add to bag', :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id }, :html_options => {:class => 'button'} %>
+             </div>
+                 <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
+                 <%= image_tag 'http://www.xiggit.com/icons/letter.png' %>  <%= link_to_remote 'Contact seller', :url => { :controller => 'notifier', :action => 'contact_seller', :email => User.find_by_facebook_id(b.uid).email, :post_id => b.id, :sender_email => @current_user.email, :sender_name => @current_user.first_name, :book_title => b.title }, :html_options => {:class => 'button'} %>
+             </div>
+             <% end %>
+               <% else %>
+               <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
+                 <%= image_tag 'http://www.xiggit.com/icons/user.png' %>  You posted this
+             </div>
+               <% end %>
+             </div>
+           </td>
+         </tr>
+
+          </table>
+<table id="book_posts_details">
+              <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows3") -%>">
+                <td>
+
+
+        <span class="small2">
+<div class="details_link" id="show_details_link_<%= b.id %>" style="display:inline;">
+  <big><big>></big></big> <a href="#" onclick="show_details_<%= b.id %>(); return false;">show details</a>
+  <br><br>
+</div>
+
+<div class="details_link" id="hide_details_link_<%= b.id %>" style="display:none;">
+<a href="#" onclick="hide_details_<%= b.id %>(); return false;"><small>^</small> hide details</a>
+ <br>
+</div>
+  </span>
+<div id="details_<%= b.id %>" style="display:none;">
+  <table align="center" class="post_details_<%= cycle('odd', 'even', :name => "post_details") -%>"  style="color:#0a2f40; "><tr><td>
+        <span class="small">Condition: </span> <%= b.condition %><br />
+        <span class="small">Publisher: </span> <%= b.publisher %><br />
+</td>
+      <td>
+        <span class="small">Year: </span> <%= b.year %><br />
+<span class="small">Edition: </span> <%= b.ed %><br />
+
+
+      </td>
+    </tr></table>
+  <% unless b.comments.blank? %><div id="comments_div">
+  <span class="small3">Comments from seller:</span><br/><div id="indented"
+ <span class="comments"><%= b.comments %></span></div>
+ <% end %>
+</div></div>
+
+                </td>
+              </tr>
+            </table>
+        <% end -%>
+<% end -%>
+
+
+</div>
+</div>
+
+
+
+
