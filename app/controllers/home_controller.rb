@@ -9,6 +9,24 @@ class HomeController < ApplicationController
          if @current_user.new == 0
             redirect_to :action => 'home'
           else
+            
+                  unless User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name != nil
+        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:school_name, @current_user.facebook_session.user.education_history.last.name)
+        end
+      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).first_name != nil
+        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:first_name, @current_user.facebook_session.user.first_name)
+        end
+      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).last_name != nil
+        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:last_name, @current_user.facebook_session.user.last_name)
+        end
+
+      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).new != nil
+        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:new, '1')
+        end
+            
+            
+            
+            
             @book_bag = find_bag
           end
       else
