@@ -1,3 +1,5 @@
+#Author: Benjamin Shyong <bshyong@seas.upenn.edu>
+
 class BookPostController < ApplicationController
 
  before_filter :require_current_user
@@ -47,11 +49,8 @@ class BookPostController < ApplicationController
 			render :action => 'new'
 		end
 	end
-	def edit
-      # users should only be able to edit their own posts
-	end
-	def update
-	end
+
+
 	def delete
 
       @book_post = BookPost.find_by_id(params[:id])

@@ -1,3 +1,5 @@
+#Author: Benjamin Shyong <bshyong@seas.upenn.edu>
+
 class CourseController < ApplicationController
 
 def create
