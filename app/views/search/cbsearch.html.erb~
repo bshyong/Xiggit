@@ -7,8 +7,8 @@
 <ol>
 <% @results.each do |r| %>
 <li>
-
-<%= r %>
+Price: <%= r['price'] %><br />
+ISBN-13: <%= r.isbn %>
 </li>
 <% end %>
 </ol>
