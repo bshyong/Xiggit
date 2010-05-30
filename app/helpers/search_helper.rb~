@@ -1,6 +1,6 @@
 module SearchHelper
   
-  require 'nokogiri'
+#  require 'nokogiri'
   require 'open-uri'
   
   def cb_search author = nil, title = nil, keywords = nil
