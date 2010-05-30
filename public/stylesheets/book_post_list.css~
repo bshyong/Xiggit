@@ -18,7 +18,7 @@
 
 small {
 	font-size:16px;
-        font-family: "Delicious Bold";
+        font-family: "DeliciousBold";
 }
 
 #isbn {
@@ -34,7 +34,7 @@ small {
 
 
 #book_post_comments {
-  font-family: "Delicious Bold", sans-serif;
+  font-family: "DeliciousBold", sans-serif;
   color:#114b65;
   font-weight:bold;
   font-size:16px;
@@ -124,7 +124,7 @@ table#book_posts a:link {
 td.top_left {
    padding: 18px 10px 4px 10px;
    font-size:18px;
-   font-family:'Delicious Bold';
+   font-family:'DeliciousBold';
 }
 
 td.top_left a:hover{
@@ -138,7 +138,7 @@ td.bottom_left {
 
 td.top_right {
    padding: 8px 10px 4px 0px;
-   font-family:'Delicious Bold';
+   font-family:'DeliciousBold';
 }
 
 td.bottom_right {
@@ -171,14 +171,14 @@ a#newpostlink:hover {
 
 .post_details {
     padding-top:5px;
-     font-family: "Delicious Roman", sans-serif;
+     font-family: "DeliciousRoman", sans-serif;
      font-size:14px;
 font-weight:bold;
      color:#526e8a;
 }
 
 .price {
-     font-family: "Delicious Roman", sans-serif;
+     font-family: "DeliciousRoman", sans-serif;
         font-size:18px;
         font-weight:bold;
     color:#000000;
@@ -207,7 +207,7 @@ div.details_link {
 }
 
 #course_autocomplete {
-      font-family: "Delicious Roman", sans-serif;
+      font-family: "DeliciousRoman", sans-serif;
       line-height:100%;
       font-size:12px;
 }
@@ -244,7 +244,7 @@ border:medium solid #526e8a;
 
 .sort_links {
     font-size:16px;
-    font-family:"Delicious Bold";
+    font-family:"DeliciousBold";
 }
 
 span.current {
@@ -259,7 +259,7 @@ big {
 
 div#homeschool {
     margin: 5px 0px 15px 0px;
-    font-family: "Delicious Roman", sans-serif;
+    font-family: "DeliciousRoman", sans-serif;
     color:#114b65;
     text-align:center;
     letter-spacing:1px;
@@ -268,14 +268,14 @@ div#homeschool {
 }
 
 div#logout_link a{
-    font-family:'Delicious Bold';
+    font-family:'DeliciousBold';
     font-size:16px;
 }
 
 div.details_link a{
         color:#114b65;
         text-decoration:none;
-        font-family:'Delicious Heavy';
+        font-family:'DeliciousHeavy';
         
 }
 

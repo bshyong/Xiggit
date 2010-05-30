@@ -51,7 +51,7 @@
     <li>
       <h2>Search Bar</h2>
       <p>
-      Use the <span style="font-family:'DeliciousBold'"><%= link_out_to 'price comparison tool', '#' %> </span> to search across the internet for the <span class="deliciousbold">lowest prices</span> on all your books.
+      Use the <span style="font-family:'Delicious Bold'"><%= link_out_to 'price comparison tool', '#' %> </span> to search across the internet for the <span class="deliciousbold">lowest prices</span> on all your books.
 
 
         or search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %>

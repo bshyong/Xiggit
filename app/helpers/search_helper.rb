@@ -1,6 +1,9 @@
 module SearchHelper
   
-def cb_search author, title, keywords
+  require 'nokogiri'
+  require 'open-uri'
+  
+  def cb_search author = nil, title = nil, keywords = nil
   
    if author.blank?
     @author = ''
@@ -20,23 +23,17 @@ def cb_search author, title, keywords
     @keywords = '&keywords=' + keywords
   end
     
-  @url = 'http://api.campusbooks.com/6/rest/search?key=xiSU31GxwkRKshbeZ2nx' + @author + @title + @keywords + '&page=1'
+  @call_url = 'http://api.campusbooks.com/6/rest/search?key=xiSU31GxwkRKshbeZ2nx' + @author + @title + @keywords + '&page=1'
 
-  doc = XML::Reader.file(@url)
+  @doc = Nokogiri::HTML(open(@call_url))
   
   @results = []
-  
-  while doc.read
-
-      if doc.name == 'book'
-       @results << doc.expand 
-       doc.move_to_element
-   end
-
+  @doc.xpath('//results/book/title').each do |r|
+    @results << r.inner_text()
   end
-doc.close
-return @results
+  
+ # @results = @doc.xpath('//results/book/title').inner_text()
 
 end  
-
+  
 end

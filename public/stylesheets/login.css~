@@ -75,7 +75,7 @@
 
 
 .deliciousbold {
-    font-family: "DeliciousBold", sans-serif;
+    font-family: "DeliciousBold", "Verdana", sans-serif;
 }
 
 .deliciousroman {

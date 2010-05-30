@@ -22,18 +22,28 @@
 
 <div id="wrap_list">
 <div id="list_body"><div style="text-align:center; margin-bottom:10px;font-size:28px;font-family:'Delicious Bold';">Search Results</div>
-
 </div>
+
+<div style="border:medium solid black;padding:20px 0px;">
+<% if @results2.nil? %>
+<h1>No results found</h1>
+<% else %>
+<ol>
+<% @results2.each do |r| %>
+<li>
+<%= r %>
+</li>
+<% end %>
+</ol>
+<% end %>
+</div>
+
 <% if @results.blank? %>
-<br /><div style="border:medium solid black;padding:50px 0px;">
-| Placeholder for retailer results |</div>
-<br /><br />
+<br />
+<br />
 Your book couldn't be found in the underground market! <br />Check back later or use our price comparator to search online retailers.
 
 <% else %>
-
-<div style="border:medium solid black;padding:50px 0px;">
-| Placeholder for retailer results |</div>
 
 <div class="sort_links">
 <br />
@@ -42,7 +52,6 @@ Your book couldn't be found in the underground market! <br />Check back later or
 
 <% @results.each do |b| -%>
           <table id="book_posts" align="center">
-
 
             <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows") -%>">
               <td class="top_left">

@@ -1,8 +1,11 @@
-<% if @results2.nil? %>
+<% cb_search('wade') %>
+
+
+<% if @results.nil? %>
 <h1>No results found</h1>
 <% else %>
 <ol>
-<% @results2.each do |r| %>
+<% @results.each do |r| %>
 <li>
 <%= r %>
 </li>
