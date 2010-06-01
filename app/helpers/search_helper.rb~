@@ -1,6 +1,6 @@
 module SearchHelper
   
-#  require 'nokogiri'
+  require 'nokogiri'
   require 'open-uri'
   
   def cb_search author = nil, title = nil, keywords = nil
@@ -23,32 +23,41 @@ module SearchHelper
     @keywords = '&keywords=' + keywords
   end
     
+    
+
+      
   @call_url = 'http://api.campusbooks.com/6/rest/search?key=xiSU31GxwkRKshbeZ2nx' + @author + @title + @keywords + '&page=1'
 
-  @doc = Nokogiri::HTML(open(@call_url))
-  @isbn_array = []
-  @results = []
-  
-  @doc.xpath('//results/book/isbn13').slice(0,3).each do |r|
-    @isbn_array << r.inner_text()
+
+
+  @doc = Nokogiri::XML(open(@call_url))
+  @hash_array = []
+  @hash_array2 = []
+
+
+  @doc.xpath('//results/book').slice(0,3).each do |r|
+    @h ={}
+    @h["isbn"] = r>('isbn13')
+    @h["title"] = r>('title')
+    @h["author"] = r>('author')
+    @h["image"] = r>('image')
+    @hash_array << @h
+  #  @isbn_array << r.inner_text()
   end
 
- @isbn_array.each do |i|
-   @price_url = 'http://api.campusbooks.com/6/rest/prices?key=xiSU31GxwkRKshbeZ2nx&isbn=' + i.to_s
-   @price = Nokogiri::HTML(open(@price_url))
-   @price.xpath('//offer').slice(0,1).each do |o|
+
+ @hash_array.each do |i|
+   @isbn = i['isbn']
+   @price_url = 'http://api.campusbooks.com/6/rest/prices?key=xiSU31GxwkRKshbeZ2nx&isbn=' + @isbn.inner_text()
+   Nokogiri::XML(open(@price_url)).xpath('//offer').slice(0,1).each do |o|
      @h = {}
      @h["price"] = o>('price')
-     @h["isbn"] = o>('isbn13')
-   @results << @h
-   end
+     @h["isbn"] = @isbn
+     @h["link"] = o>('link')
+   @hash_array2 << @h
 end
-    
-    return @results
-    
-  
- # @results = @doc.xpath('//results/book/title').inner_text()
-
+end
+  @results = @hash_array.zip(@hash_array2).collect { |array| array.inject(&:merge) }
 end  
   
 end

@@ -1,25 +1,4 @@
-class SearchController < ApplicationController
-
-layout 'application'
-  require 'nokogiri'
-  require 'open-uri'
-
-def index
-  cb_search(nil, nil, params[:terms])
-	 @results = BookPost.paginate_search params[:terms], :per_page => 5, :page => params[:page]
-	 @book_bag = find_bag
-end
-
-def test
-     render :update do |page|
-            page.replace_html 'cb_results', :partial => 'user/seller_contacted'
-            page.visual_effect :highlight, 'cb_results'
-           end
-         end
-
-private
-
-  def cb_search author = nil, title = nil, keywords = nil
+   def cb_search author = nil, title = nil, keywords = nil
   
    if author.blank?
     @author = ''
@@ -67,6 +46,9 @@ end
 end
   @results2 = @hash_array.zip(@hash_array2).collect { |array| array.inject(&:merge) }
   
-end  
+   render :update do |page|
+            page.replace_html 'cb_results', :partial => 'user/seller_contacted'
+            page.visual_effect :highlight, 'cb_results'
+           end
 
-end
+end  

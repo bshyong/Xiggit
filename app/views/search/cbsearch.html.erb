@@ -1,15 +1,21 @@
-<% cb_search('wade') %>
-
+<% cb_search('wade', 'chemistry') %>
 
 <% if @results.nil? %>
 <h1>No results found</h1>
 <% else %>
-<ol>
-<% @results.each do |r| %>
-<li>
-Price: <%= r['price'] %><br />
-ISBN-13: <%= r['isbn'] %>
-</li>
+<table id="cb">
+<tr>
+<% @results.each do |h| %>
+<td>
+<%= image_tag h['image'].inner_text() %>
+</td>
+<td style="width:140px;">
+<%= h['title'].inner_text() %> <br/>
+by <%= h['author'].inner_text() %><br />
+Price: $<%= h['price'].inner_text() %><br />
+Link: <%= link_to 'Here', h['link'].inner_text() , :popup => 'true'%>
+</td>
 <% end %>
-</ol>
+</tr>
+</table>
 <% end %>

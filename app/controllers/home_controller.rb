@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
 
     layout 'application'
+    
+    USER_ID, PASSWORD = 'demo@xiggit.com', 'demopass'
+    before_filter :authenticate, :only => [:login]
 
     # this code can probably be refactored by using a :before_filter
   
@@ -86,5 +89,12 @@ private #anything under this line is prevented from being called as an action on
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
         session[:book_bag] ||= BookBag.new
     end
+    
+     def authenticate
+      authenticate_or_request_with_http_basic do |id, password| 
+          id == USER_ID && password == PASSWORD
+      end
+   end
+   
 
 end

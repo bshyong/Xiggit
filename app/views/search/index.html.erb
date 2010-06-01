@@ -24,19 +24,30 @@
 <div id="list_body"><div style="text-align:center; margin-bottom:10px;font-size:28px;font-family:'Delicious Bold';">Search Results</div>
 </div>
 
-<div style="border:medium solid black;padding:20px 0px;">
 <% if @results2.nil? %>
-<h1>No results found</h1>
-<% else %>
-<ol>
-<% @results2.each do |r| %>
-<li>
-<%= r %>
-</li>
-<% end %>
-</ol>
-<% end %>
+<div id="cb_results">
+<%= image_tag 'http://mpw.nashville.gov/Bikeways/images/ajax-progress.gif' %>
 </div>
+<% else %>
+<div id="cb_results" style="border:medium solid black;padding:10px 0px;">
+<table>
+<tr>
+<% @results2.each do |h| %>
+<td>
+<%= image_tag h['image'].inner_text() %>
+</td>
+<td style="width:140px;">
+<%= h['title'].inner_text() %> <br/>
+by <%= h['author'].inner_text() %><br />
+Price: $<%= h['price'].inner_text() %><br />
+Link: <%= link_to 'Here', h['link'].inner_text() , :popup => 'true'%>
+</td>
+<% end %>
+</tr>
+</table>
+</div>
+<% end %>
+
 
 <% if @results.blank? %>
 <br />
