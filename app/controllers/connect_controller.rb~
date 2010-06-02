@@ -68,5 +68,21 @@ class ConnectController < ApplicationController
   def invite_friends
   end
   
+  private
+  
+     def set_user_info
+    unless @current_user.school_name != nil && 
+        @current_user.update_attribute(:school_name, @current_user.facebook_session.user.education_history.last.name)
+       end
+      unless @current_user.first_name != nil
+        @current_user.update_attribute(:first_name, @current_user.facebook_session.user.first_name)
+        end
+      unless @current_user.last_name != nil
+        @current_user.update_attribute(:last_name, @current_user.facebook_session.user.last_name)
+        end
+      unless @current_user.new != nil
+        @current_user.update_attribute(:new, '1')
+        end
+      end
 end
 

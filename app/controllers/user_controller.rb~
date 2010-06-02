@@ -34,7 +34,7 @@ class UserController < ApplicationController
 
           else
               render :update do |page|
-           # page.replace 'warning', :partial => 'user/save_email_failed'
+            page.replace 'warning', :partial => 'user/save_email_failed'
             page.visual_effect :highlight, 'warning'
               end
           end

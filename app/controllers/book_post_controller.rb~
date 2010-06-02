@@ -1,3 +1,5 @@
+#Author: Benjamin Shyong <bshyong@seas.upenn.edu>
+
 class BookPostController < ApplicationController
 
  before_filter :require_current_user
@@ -19,6 +21,7 @@ class BookPostController < ApplicationController
 	def list
  @book_posts = BookPost.paginate_by_school_name @current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
   @book_bag = find_bag
+    User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:school_name, @current_user.facebook_session.user.education_history.last.name)
   end
 
  	def show

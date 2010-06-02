@@ -67,11 +67,6 @@ end
 end
   @results2 = @hash_array.zip(@hash_array2).collect { |array| array.inject(&:merge) }
   
-   render :update do |page|
-            page.replace_html 'cb_results', :partial => 'user/seller_contacted'
-            page.visual_effect :highlight, 'cb_results'
-           end
-
 end  
 
 end
