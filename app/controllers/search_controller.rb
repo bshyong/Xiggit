@@ -5,19 +5,16 @@ layout 'application'
   require 'open-uri'
 
 def index
-  cb_search(nil, nil, params[:terms])
+  delay.test(nil, nil, params[:terms])
 	 @results = BookPost.paginate_search params[:terms], :per_page => 5, :page => params[:page]
 	 @book_bag = find_bag
 end
 
 def test
-     render :update do |page|
-            page.replace_html 'cb_results', :partial => 'user/seller_contacted'
-            page.visual_effect :highlight, 'cb_results'
-           end
+  puts 'DONEEE'
          end
 
-private
+
 
   def cb_search author = nil, title = nil, keywords = nil
   
@@ -66,7 +63,8 @@ private
 end
 end
   @results2 = @hash_array.zip(@hash_array2).collect { |array| array.inject(&:merge) }
-  
+   
+  # puts 'DONEEEEEEEEEEEEEEEEEEEEEEEEEEEE'
 end  
 
 end
