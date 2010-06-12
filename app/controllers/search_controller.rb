@@ -5,16 +5,10 @@ layout 'application'
   require 'open-uri'
 
 def index
-  cb_search(nil, nil, params[:terms])
+  # cb_search(nil, nil, params[:terms])  # This method is too slow!  Need to optimize the code.
 	 @results = BookPost.paginate_search params[:terms], :per_page => 5, :page => params[:page]
 	 @book_bag = find_bag
 end
-
-def test
-  puts 'DONEEE'
-         end
-
-
 
   def cb_search author = nil, title = nil, keywords = nil
   
@@ -33,7 +27,7 @@ def test
   if keywords.blank?
     @keywords = ''
   else
-    @keywords = '&keywords=' + keywords
+    @keywords = '&keywords=' + keywords.gsub(' ', '%20')
   end
 
   @call_url = 'http://api.campusbooks.com/6/rest/search?key=xiSU31GxwkRKshbeZ2nx' + @author + @title + @keywords + '&page=1'
@@ -64,7 +58,6 @@ end
 end
   @results2 = @hash_array.zip(@hash_array2).collect { |array| array.inject(&:merge) }
    
-  # puts 'DONEEEEEEEEEEEEEEEEEEEEEEEEEEEE'
 end  
 
 end

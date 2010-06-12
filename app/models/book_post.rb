@@ -4,7 +4,7 @@
 
 
 require 'net/http'
-#require 'cb'
+require 'cb'
 
 class BookPost < ActiveRecord::Base
 
@@ -22,7 +22,7 @@ class BookPost < ActiveRecord::Base
 		end
 		#uses WorldCat's API to get a hash full of book metadata
 		@data = eval(Net::HTTP.get(URI.parse("http://xisbn.worldcat.org/webservices/xid/isbn/#{self.isbn}?method=getMetadata&format=ruby&fl=publisher,author,ed,title,year")))
-	#@data = Cb::book_info(self.isbn)
+#	@data = Cb::book_info(self.isbn)
   end
 
 	validates_numericality_of :price, :message => "-  numbers only. no letters!"

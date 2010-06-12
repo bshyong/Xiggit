@@ -21,14 +21,13 @@
 
 
 <div id="wrap_list">
-<div id="list_body"><div style="text-align:center; margin-bottom:10px;font-size:28px;font-family:'Delicious Bold';">Search Results</div>
+<div id="list_body"><div style="text-align:center; margin-top:15px;margin-bottom:0px;font-size:28px;font-family:'Delicious Bold';">Search Results</div>
 </div>
 
-
+<% unless @results2.nil? %>
 <div id="cb_results" style="border:medium solid black;padding:10px 0px;">
 <table style="font-size:16px;text-align:left;">
 <tr>
-<% unless @results2.nil? %>
 <% @results2.each do |h| %>
 <td>
 <%= image_tag h['image'].inner_text() %>
@@ -40,11 +39,10 @@ Price: $<%= h['price'].inner_text() %><br />
 Link: <%= link_to 'Here', h['link'].inner_text() , :popup => 'true'%>
 </td>
 <% end %>
-<% end %>
 </tr>
 </table>
 </div>
-
+<% end %>
 
 <% if @results.blank? %>
 <br />
