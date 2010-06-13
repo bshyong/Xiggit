@@ -26,6 +26,6 @@ Click below to edit or delete your listings.
     </div>
     
     <% else %>
-    You have no listings yet.  Click here to <% link_to 'post your books', :controller => 'book_post', :action => 'new'!
+    You have no listings.  Click here to <%= link_to 'post your books', :controller => 'book_post', :action => 'new' %>!
     </div>
     <% end %>

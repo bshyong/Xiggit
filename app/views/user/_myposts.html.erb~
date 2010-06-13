@@ -3,7 +3,7 @@
     
     <ul class="links">
         <% if BookPost.find_all_by_uid(@current_user.facebook_id).blank? %>
- You currently have no listings.
+        <li>You currently have no listings.</li>
         <% else %>
         
 <% if @current_user %>
