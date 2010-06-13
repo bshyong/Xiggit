@@ -1,0 +1,5 @@
+var courses = new Array(<%= @courses.size %>);
+
+<% @courses.each_with_index do |course, index| %>
+courses[<%= index %>] = "<%= course %>" ;
+<% end %>

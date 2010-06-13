@@ -61,6 +61,7 @@ class BookPostController < ApplicationController
       # users should only be able to delete their own posts
       # should we put in an auto-expire option?
 	end
+	
   	def auto_complete_for_book_post_course
 
         # this will be replaced with a faster autocomplete;
@@ -72,10 +73,21 @@ class BookPostController < ApplicationController
 
 		string = params[:book_post][:course].downcase
 		File.open( file ) do |io|
-			io.each {|line| line.chomp! ; @courses << line if (line.downcase =~ /^#{string}/) and (@courses.length < 15)}
+			io.each {|line| line.chomp! ; @courses << line if (line.downcase =~ /^#{string}/) and (@courses.length < 10)}
 		end
 		render :partial => 'courses'
 	end
+	
+	def lookup_courses
+	  	file = "UPenn_courses.txt"
+	  	
+		@courses=[]
+		File.open( file ) do |io|
+			io.each {|line| line.chomp! ; @courses << line }
+		end
+		response.headers['Content-Type'] = "text/javascript"
+	  render :layout => false
+end
 
     private #anything under this line is prevented from being called as an action on the controller
 

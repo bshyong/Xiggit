@@ -146,6 +146,9 @@ background:none;
       (document.all && !window.print) ? null : setForm();
     }
   </script>
+  
+
+  
 
 <div id="wrap4">
   <br />
@@ -181,11 +184,10 @@ background:none;
 
 
    <td>  <br/>
-   <label for="book_post_course">course <small>(dept &amp; number)</small></label><br/><br/>
-   <%= text_field :book_post, :course %>
+   <label for="lookup_courses">course <small>(dept &amp; number)</small></label><br/><br/>
+   <%#= text_field :book_post, :course %>
    <%= text_field_with_auto_complete :book_post, :course %>
 </td>
-
    </tr>
    </table>
    <table class="searchtable" align="center"><tr><td>
