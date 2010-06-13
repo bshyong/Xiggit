@@ -71,7 +71,6 @@ There are no posts at the moment.  Be the first to list your book!
               <td class="bottom_right" style="line-height:50%; font-size:24px;">
 
                 <small>posted 
-                
                 <% if (Time.now.to_i - Time.at(b.created_at.to_i).to_i)/(60*60*24) == 0 %>
                 today, <%= b.created_at.strftime('%A, %B, %d, %Y') %>
                 <% else %>
@@ -82,8 +81,8 @@ There are no posts at the moment.  Be the first to list your book!
             </tr>
          <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows4") -%>">
           <td class="bottom_left" id="course">
-                <small> course:</small> <%=h b.course -%>
-
+                <small> course:</small> 
+                <%=h b.course -%>
               </td>
            <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
 
@@ -135,9 +134,13 @@ There are no posts at the moment.  Be the first to list your book!
 
       </td>
     </tr></table>
-  <% unless b.comments.blank? %><div id="comments_div">
+    <% if b.comments == '&nbsp;'*10 %>
+    <%else%>
+  <% unless b.comments.blank? %>
+  <div id="comments_div">
   <span class="small3">Comments from seller:</span><br/><div id="indented"
  <span class="comments"><%=h b.comments %></span></div>
+ <% end %>
  <% end %>
 </div></div>
 

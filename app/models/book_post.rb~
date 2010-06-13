@@ -4,7 +4,7 @@
 
 
 require 'net/http'
-require 'cb'
+#require 'cb'
 
 class BookPost < ActiveRecord::Base
 
@@ -35,9 +35,6 @@ class BookPost < ActiveRecord::Base
 	end
 
 	def before_save
-
-      
-
       unless @data.blank?
 		#something with UID will have to be done in here too...
     # after user and session models are put in, we can associate schools and do something with school id as well
@@ -49,14 +46,20 @@ class BookPost < ActiveRecord::Base
     self.ed ||= 'n/a'.to_s
 # conditional assignment sets edition to "n/a" if the hash didn't provide a value
 
-
       #for some reason, isbns are returning invalid when using cb, so temporary switch back to WorldCat
+      # NOTE: WorldCat has a limit of 1000 queries per day, switch to CB or Amazon.
 #    self.isbn = @data["isbn13"]
 #    self.title = @data["title"]
 #    self.author = @data["author"]
 #    self.publisher = @data["publisher"]
 #    self.ed = @data["edition"]
 #    self.year = @data["published_date"][0..4].to_i
+      end
+      if self.comments.blank?
+        self.comments = 'No comments'
+      end
+       if self.course.blank?
+        self.course = 'n/a'
       end
 	end
 end
