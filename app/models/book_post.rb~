@@ -56,7 +56,7 @@ class BookPost < ActiveRecord::Base
 #    self.year = @data["published_date"][0..4].to_i
       end
       if self.comments.blank?
-        self.comments = 'No comments'
+        self.comments = 'No comments.'
       end
        if self.course.blank?
         self.course = 'n/a'
