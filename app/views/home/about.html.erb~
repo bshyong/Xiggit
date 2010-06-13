@@ -2,5 +2,5 @@
 <p>
 Xiggit was created and is maintained by college students <br />from UC Berkeley, UPenn, MIT, and Johns Hopkins.
 <br /><br />
-We'd love to hear from you!<br /> You can reach us at <%= mail_to "feedback@xiggit.com", "feedback@xiggit.com", :encode => "javascript" %> 
+We'd love to hear from you!<br /> Reach us at <%= mail_to "feedback@xiggit.com", "feedback@xiggit.com", :encode => "javascript" %> 
 </p>

@@ -55,7 +55,7 @@ class BookPostController < ApplicationController
 
       @book_post = BookPost.find_by_id(params[:id])
       @book_post.delete
-      flash[:notice] = fading_flash_message("Book post successfully deleted.", 5)
+      flash[:notice] = fading_flash_message("Book post successfully deleted.", 3)
       redirect_to :controller => 'home', :action => 'home'
 
       # users should only be able to delete their own posts

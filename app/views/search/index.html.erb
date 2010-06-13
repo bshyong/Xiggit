@@ -47,7 +47,7 @@ Link: <%= link_to 'Here', h['link'].inner_text() , :popup => 'true'%>
 <% if @results.blank? %>
 <br />
 <br />
-Your book couldn't be found in the underground market! <br />Check back later or use our price comparator to search online retailers.
+Your book couldn't be found in the underground market! <br />Check back later or use our <%= link_to 'price comparator', :controller => 'home', :action => 'price_compare' %> to search online retailers.
 <% else %>
 
 <div class="sort_links">

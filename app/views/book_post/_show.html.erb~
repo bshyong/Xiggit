@@ -73,7 +73,7 @@ Course:  <% if @book_post.uid == @current_user.facebook_id %>
 <% if @book_post.uid == @current_user.facebook_id %>
         <%= in_place_editor_field :book_post, :comments, {}, {:rows => 3} %>
          <% else %>
-        <%= @book_post.comments %>
+        <%=h @book_post.comments %>
         <% end %>
 
 
@@ -93,6 +93,6 @@ Course:  <% if @book_post.uid == @current_user.facebook_id %>
              </div>
 <% end %>
 <% end %>
-
+<br /><br />
 
 

@@ -52,7 +52,7 @@ class HomeController < ApplicationController
         render :layout => 'login'
         end
     end
-
+    
     def about
         @book_bag = find_bag
         unless @current_user

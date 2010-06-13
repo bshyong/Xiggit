@@ -9,6 +9,12 @@
     </ul>
   <% else %>
  <% for item in @book_bag.items %>
+ 
+ <% if BookPost.find_by_id(item).nil? %>
+ <% @book_bag.remove_book(item) %>
+ <% else %>
+ 
+ 
     <div id="<%= item %>">
     <table>
        
@@ -37,3 +43,4 @@
     <% end %>
   </div>
   </li>
+  <% end %>

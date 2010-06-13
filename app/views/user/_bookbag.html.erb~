@@ -9,13 +9,19 @@
     </ul>
   <% else %>
  <% for item in @book_bag.items %>
+ 
+ <% if BookPost.find_by_id(item).nil? %>
+ <% @book_bag.remove_book(item) %>
+ <% else %>
+ 
+ 
     <div id="<%= item %>">
     <table>
        
       <tr>
         <td style="width:180px;">
 
-<%= link_to_remote truncate(BookPost.find_by_id(item).title, :omission => "...", :length => 51), :update => 'content', :url => { :controller => 'book_post', :action => 'show_partial', :id => item },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %>
+<%= link_to_remote truncate(BookPost.find_by_id(item).title, :omission => "...", :length => 50), :update => 'content', :url => { :controller => 'book_post', :action => 'show_partial', :id => item },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %>
 
         </td>
         <td style="padding-left:10px;">
@@ -37,3 +43,4 @@
     <% end %>
   </div>
   </li>
+  <% end %>

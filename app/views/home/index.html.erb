@@ -51,10 +51,10 @@
     <li>
       <h2>Search Bar</h2>
       <p>
-      Use the <span style="font-family:'DeliciousBold'"><%= link_out_to 'price comparison tool', '#' %> </span> to search across the internet for the <span class="deliciousbold">lowest prices</span> on all your books.
+      Use the <span style="font-family:'DeliciousBold'"><%= link_to 'price comparison tool', :controller => 'home', :action => 'price_compare' %> </span> to search for the <span class="deliciousbold">lowest prices</span> across the internet.<br />
 
 
-        or search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %>
+Search the <%= link_to 'local listings', :controller => 'book_post', :action => 'list' %> to find sellers on your campus.
       </p>
     </li>
 
@@ -64,7 +64,6 @@
       <p>
         You can use the <span class="deliciousbold">book bag</span> to quickly store listings.
       </p>
-
     </li>
 
     <li>

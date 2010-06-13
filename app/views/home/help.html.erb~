@@ -1,0 +1,7 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<h1> Help</h1>
+Send a message to <%= mail_to "help@xiggit.com", "help@xiggit.com", :encode => "javascript" %> if you have any questions.<br />
