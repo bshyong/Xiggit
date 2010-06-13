@@ -1,6 +1,6 @@
 <h1>500 error</h1>
 <h2>There was a server error.</h2>
-<p>This error has been logged and will be fixed as soon as possible.</p>
+<p>This error has been logged and .</p>
 <p>Please send a message to <%= mail_to "support@xiggit.com", "support@xiggit.com", :encode => "javascript" %>  describing the issue if this error persists.</p>
 
 
