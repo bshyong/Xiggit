@@ -25,7 +25,7 @@
 </div>
 <% if @book_posts.blank? %>
 <br />
-There are no posts at the moment.  Be the first to list your book!
+There are no posts at the moment.  Be the first to <%= link_to 'list your book', :controller => 'book_post', :action => 'new' %>!
 
 <% else %>
 

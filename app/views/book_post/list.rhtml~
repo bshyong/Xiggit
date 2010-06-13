@@ -25,7 +25,7 @@
 </div>
 <% if @book_posts.blank? %>
 <br />
-There are no posts at the moment.  Be the first to list your book!
+There are no posts at the moment.  Be the first to <% link_to 'list your book', :controller => 'book_post', :action => 'new' %>!
 
 <% else %>
 
@@ -134,13 +134,10 @@ There are no posts at the moment.  Be the first to list your book!
 
       </td>
     </tr></table>
-    <% if b.comments == '&nbsp;'*10 %>
-    <%else%>
   <% unless b.comments.blank? %>
   <div id="comments_div">
   <span class="small3">Comments from seller:</span><br/><div id="indented"
  <span class="comments"><%=h b.comments %></span></div>
- <% end %>
  <% end %>
 </div></div>
 
