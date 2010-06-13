@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
     layout 'application'
     
-    USER_ID, PASSWORD = 'demo@xiggit.com', 'demopass'
+    USER_ID, PASSWORD = 'demo', 'demopass'
     before_filter :authenticate, :only => [:login, :home]
 
     # this code can probably be refactored by using a :before_filter
