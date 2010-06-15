@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
     layout 'application'
     
-    USER_ID, PASSWORD = 'demo@xiggit.com', 'demopass'
+    USER_ID, PASSWORD = 'demo', 'demopass'
     before_filter :authenticate, :only => [:login, :home]
 
     # this code can probably be refactored by using a :before_filter
@@ -66,7 +66,26 @@ class HomeController < ApplicationController
         render :layout => 'login'
         end
     end
+    
+        def import
+      columns = [:name]
+       values = []
 
+file = "commcolleges.txt"
+
+	File.open( file ) do |io|
+			io.each {|line| line.chomp! ; values << line }
+		end
+		
+		values.each do |v|
+    School.create! :name => v.to_s
+end
+
+# School.import columns, values, :on_duplicate_key_update => [:name]
+
+    end
+    
+    
 private #anything under this line is prevented from being called as an action on the controller
 
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created

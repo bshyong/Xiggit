@@ -20,12 +20,19 @@ class ApplicationController < ActionController::Base
 
 def set_current_user_email
         @item = User.find_by_facebook_id(@current_user.facebook_id)
-        @item.update_attributes(:email => params[:value])
+        @item.update_attributes(:email => params[:value]) 
 
         #validations are being performed, but no error messages yet..
         render :text => @item.send(:email).to_s
 
 end
+
+def self.fast_auto_complete_for(object, method, options = {})
+ define_method("auto_complete_for_#{object}_#{method}") do
+   render :json => object.to_s.camelize.constantize.find(:all).map(&method).to_json
+  end
+end
+
 
 
   def set_assumptions

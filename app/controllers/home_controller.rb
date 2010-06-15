@@ -67,6 +67,7 @@ class HomeController < ApplicationController
         end
     end
 
+    
 private #anything under this line is prevented from being called as an action on the controller
 
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
