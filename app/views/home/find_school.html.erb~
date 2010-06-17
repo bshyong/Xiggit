@@ -1,7 +1,7 @@
   <h3>Please select your school.</h3>
 
   <p>Tip: Enter the most important part of your school name. <br />For example, enter "Austin" to find UT Austin.  
-  <br />Some common abbreviations like "UCLA" and "SUNY" also work.</p>
+  <br />Some common abbreviations like "UCLA" also work.</p>
 <%= form_tag :action => 'set_school' %>
   <input type="text" name="name" id="school_name", size="40"/> 
   <input type="submit" value="Let's go!"/>

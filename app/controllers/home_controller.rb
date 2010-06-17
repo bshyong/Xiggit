@@ -76,7 +76,8 @@ class HomeController < ApplicationController
 def find_school
   render :layout => 'login'
 end
-    
+
+   
 def set_school
   
 if School.find_by_name(params[:name])

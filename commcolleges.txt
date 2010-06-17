@@ -215,13 +215,12 @@ Hopkinsville Community College
 Horry-Georgetown Technical College
 Hostos Community College
 Housatonic Community College
- Houston Community College System
- Howard Community College
+Houston Community College System
+Howard Community College
 Howard College
 Southwest Collegiate Institute for the Deaf
 Hudson County Community College
- Hudson Valley Community College
-Huertas Junior College
+Hudson Valley Community College
 Huntington Junior College
 Hutchinson Community College
 Kalamazoo Valley Community College
@@ -729,7 +728,6 @@ Imperial Valley College
 Independence Community College
 Indian Hills Community College
 Indian River State College
-Instituto Comercial de Puerto Rico Junior College
 Inver Hills Community College
 Iowa Central Community College
 Iowa Lakes Community College
