@@ -10,8 +10,9 @@
 
     <ul class="links">
       <li><%= link_to 'Home', root_path %></li>
-      <li><div class="orange" id="new_post_link"style="font-family:'DeliciousBold';"><%= link_to "Add new book post", {:controller => 'book_post', :action => 'new' }, :id => "newpostlink" %></div></li>
-      <li><%= link_to 'Price Comparison', :controller => 'home', :action => 'price_compare' %></li>
+        <li><div class="orange" id="new_post_link" style="font-family:'DeliciousBold';"><%= link_to 'Price Comparison', :controller => 'home', :action => 'price_compare' %></div></li>
+      <li><%= link_to "Add new book post", {:controller => 'book_post', :action => 'new' } %></li> <% #, :id => "newpostlink" %>
+      
       <li><%= link_to 'View all books', book_post_method_path('list') %></li>
       <li><% form_tag search_method_path, :method => 'get' do %>
     <%= text_field_tag :terms, params[:terms], :size => 19 %>

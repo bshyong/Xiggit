@@ -8,3 +8,28 @@
 </form>
 
 <%= fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1, :choices => 15 %>
+
+    <script type="text/javascript">
+var uservoiceOptions = {
+  /* required */
+  key: 'xiggit',
+  host: 'xiggit.uservoice.com',
+  forum: '57352',
+  showTab: true,
+  /* optional */
+  alignment: 'left',
+  background_color:'#06C',
+  text_color: 'white',
+  hover_color: '#ff8400',
+  lang: 'en'
+};
+
+function _loadUserVoice() {
+  var s = document.createElement('script');
+  s.setAttribute('type', 'text/javascript');
+  s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+  document.getElementsByTagName('head')[0].appendChild(s);
+}
+_loadSuper = window.onload;
+window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+</script>
