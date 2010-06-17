@@ -33,6 +33,8 @@ def self.fast_auto_complete_for(object, method, options = {})
   end
 end
 
+fast_auto_complete_for :school, :name
+
 
 
   def set_assumptions
@@ -114,6 +116,11 @@ end
         session[:book_bag] ||= BookBag.new
     end
 
+def ensure_school
+        if @current_user.school_name.blank?
+          redirect_to :action => 'find_school'
+        end
+      end
 
 
 end

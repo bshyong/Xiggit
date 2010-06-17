@@ -4,6 +4,7 @@ class BookPostController < ApplicationController
 
  before_filter :require_current_user
  before_filter :email_check, :only => [:new]
+ before_filter :ensure_school
 
  layout 'application'
 
@@ -17,8 +18,14 @@ class BookPostController < ApplicationController
  in_place_edit_for :book_post, :course
  in_place_edit_for :book_post, :price
  in_place_edit_for :book_post, :comments
-# fast_auto_complete_for :school, :name
 
+	
+	def ensure_school
+        if @current_user.school_name.blank?
+          redirect_to :controller => 'home', :action => 'find_school'
+        end
+      end
+	
 	def list
  @book_posts = BookPost.paginate_by_school_name @current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
   @book_bag = find_bag
@@ -94,12 +101,6 @@ end
 
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
         session[:book_bag] ||= BookBag.new
-    end
-
-    def email_check
-        if @current_user.email.nil? || @current_user.email.blank?
-            redirect_to :controller => 'book_post', :action => 'no_email'
-        end
     end
 
 end

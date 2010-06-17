@@ -7,9 +7,9 @@ class ConnectController < ApplicationController
   def login
     redirect_to root_path and return unless request.xhr?
 
-     if User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name.nil? || User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name.blank?
-        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:school_name, @current_user.facebook_session.user.education_history.last.name)
-       end
+#     if User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name.nil? || User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name.blank?
+#        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:school_name, @current_user.facebook_session.user.education_history.last.name)
+#       end
       unless User.find_by_facebook_id(@current_user.facebook_session.user.id).first_name != nil
         User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:first_name, @current_user.facebook_session.user.first_name)
         end

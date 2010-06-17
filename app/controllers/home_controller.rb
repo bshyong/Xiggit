@@ -9,24 +9,30 @@ class HomeController < ApplicationController
   
     def index
       if @current_user
+        if @current_user.school_name.blank?
+          redirect_to :action => 'find_school'
+        else
          if @current_user.new == 0
             redirect_to :action => 'home'
           else
             @book_bag = find_bag
           end
+        end
       else
          redirect_to :action => 'login'
-      end
+    end
   end
 
     def home
         if @current_user
+           if @current_user.school_name.blank?
+          redirect_to :action => 'find_school'
+        else          
             @book_bag = find_bag
+          end
         else
             redirect_to :action => 'login'
         end
-
-        
     end
 
     def login
@@ -72,13 +78,14 @@ def find_school
 end
     
 def set_school
+  
 if School.find_by_name(params[:name])
   @current_user.update_attribute(:school_name, params[:name])
   flash[:notice] = fading_flash_message("School saved successfully!", 3)
   redirect_to :action => 'index'
 else
   flash[:warning] = 'The school you entered could not be found! <br />Please send a message to help@xiggit.com if you think this is a mistake.'
-  render :action => 'set_school'
+  render :action => 'find_school', :layout => 'login'
 end
 end
     

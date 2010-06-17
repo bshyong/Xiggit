@@ -29,7 +29,7 @@ class UserController < ApplicationController
           render :update do |page|
             page.replace 'warning', :partial => 'user/save_email'
             page.visual_effect :highlight, 'notice'
-            page.visual_effect :fade, 'notice', :duration => 1.0, :from => 1.0, :to => 0.0, :delay => 2
+            page.visual_effect :fade, 'notice', :duration => 1.0, :from => 1.0, :to => 0.0, :delay => 3
             page.reload
           end
 

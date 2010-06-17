@@ -1,3 +1,8 @@
+<% if @current_user.email.nil? || @current_user.email.blank? %>
+<div style="text-align:center;font-family:'Delicious Bold';font-size:24px;margin-top:30px;">
+  Please enter a valid email address and try again!
+</div>
+<% else %>
 <%= stylesheet_link_tag 'book_post_new'  %>
 
   <style type="text/css">
@@ -187,14 +192,7 @@ background:none;
    <label for="lookup_courses">course <small>(dept &amp; number)</small></label><br/><br/>
    <%#= text_field :book_post, :course %>
    <%= text_field_with_auto_complete :book_post, :course %>
-   
-
- <!-- <input type="text" name="name" id="school_name"/> -->
-<%#= fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1 %>
-
-
-
-</td>
+   </td>
    </tr>
    </table>
    <table class="searchtable" align="center"><tr><td>
@@ -207,16 +205,11 @@ background:none;
        <%= link_to '<img src="http://www.xiggit.com/images/cancel.png">', {:controller => 'book_post', :action => 'list'} %>
        <input type="image" src="http://www.xiggit.com/images/createbutton.png" name="submit" id="newpost" style="margin-left:15px; margin-right:8px; "/>
        </td></tr>
-
  </table>
   </fieldset>
-
   <%= hidden_field 'book_post', 'school_name', :value => @current_user.school_name %>
   <%= hidden_field 'book_post', 'uid', :value => @current_user.facebook_id  %>
 </form>
-
 </div>
-
-
 </div>
 

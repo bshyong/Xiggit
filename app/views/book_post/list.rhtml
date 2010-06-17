@@ -95,6 +95,10 @@ There are no posts at the moment.  Be the first to <%= link_to 'list your book',
                  <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
                  <%= image_tag 'http://www.xiggit.com/icons/letter.png' %>  <%= link_to_remote 'Contact seller', :url => { :controller => 'notifier', :action => 'contact_seller', :email => User.find_by_facebook_id(b.uid).email, :post_id => b.id, :sender_email => @current_user.email, :sender_name => @current_user.first_name, :book_title => b.title }, :html_options => {:class => 'button'} %>
              </div>
+             <% else %>
+                  <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
+                 <%= image_tag 'http://www.xiggit.com/icons/letter.png' %>  Enter your email to buy this book!
+             </div>
              <% end %>
                <% else %>
                <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">

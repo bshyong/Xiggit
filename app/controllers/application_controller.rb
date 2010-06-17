@@ -116,6 +116,4 @@ end
         session[:book_bag] ||= BookBag.new
     end
 
-
-
 end

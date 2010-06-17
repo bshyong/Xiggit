@@ -287,3 +287,24 @@ div.auto_complete ul strong.highlight {
 }
 
 /* END auto_complete styling */
+
+#notice {
+  margin-top:10px;
+  font-size:18px;
+  font-family:'DeliciousBold';
+  border: 2px solid green;
+  padding: 10px;
+  overflow: auto;
+  text-align:center;
+}
+
+#warning {
+  margin-top:10px;
+  font-size:18px;
+  font-family:'DeliciousBold';
+  border: 2px solid red;
+  padding: 10px;
+  overflow: auto;
+  text-align:center;
+}
+
