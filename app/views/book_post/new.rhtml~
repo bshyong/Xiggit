@@ -190,7 +190,9 @@ background:none;
    
 
  <!-- <input type="text" name="name" id="school_name"/> -->
-<%=# fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1 %>
+<%#= fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1 %>
+
+
 
 </td>
    </tr>

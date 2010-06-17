@@ -1,0 +1,10 @@
+  <h3>Please select your school.</h3>
+
+  <p>Tip: Enter the most important part of your school name. <br />For example, enter "Austin" to find UT Austin.  
+  <br />Some common abbreviations like "UCLA" also work.</p>
+<%= form_tag :action => 'set_school' %>
+  <input type="text" name="name" id="school_name", size="40"/> 
+  <input type="submit" value="Let's go!"/>
+</form>
+
+<%= fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1, :choices => 15 %>

@@ -67,6 +67,20 @@ class HomeController < ApplicationController
         end
     end
 
+def find_school
+  render :layout => 'login'
+end
+    
+def set_school
+if School.find_by_name(params[:name])
+  @current_user.update_attribute(:school_name, params[:name])
+  flash[:notice] = fading_flash_message("School saved successfully!", 3)
+  redirect_to :action => 'index'
+else
+  flash[:warning] = 'The school you entered could not be found! <br />Please send a message to help@xiggit.com if you think this is a mistake.'
+  render :action => 'set_school'
+end
+end
     
 private #anything under this line is prevented from being called as an action on the controller
 
