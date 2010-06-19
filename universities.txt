@@ -192,7 +192,6 @@ Elon University
 Embry - Riddle Aeronautical University
 Emerson College
 Emmanuel College
-Emmanuel College
 Emmanuel School of Religion
 Emmaus Bible College
 Emporia State University
@@ -282,7 +281,6 @@ Golden Gate University
 Goldey - Beacom College
 Goldfarb School of Nursing at Barnes - Jewish College
 Gonzaga University
-Gordon College
 Gordon College
 Gordon - Conwell Theological Seminary
 Goshen College
@@ -652,10 +650,7 @@ Saint John's College - Annapolis
 Saint John's College - Santa Fe
 Saint John's College
 Saint John's University
-Saint John's University
 Saint Joseph College
-Saint Joseph's College
-Saint Joseph's College
 Saint Joseph's College
 Saint Joseph's University
 Saint Lawrence University
@@ -826,7 +821,6 @@ Upstate Medical University
 State University of West Georgia
 Stephen F. Austin State University
 Stephens College
-Sterling College
 Sterling College
 Stetson University
 Stevens Institute of Technology

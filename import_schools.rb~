@@ -15,7 +15,7 @@ file = "universities.txt"
 		
 School.import columns, values, :on_duplicate_key_update => [:name]
 
-################33
+################
 
 def add_schools
 columns = [:name]
@@ -33,7 +33,7 @@ file = "universities.txt"
 			io.each {|line| line.chomp! ; values << line }
 		end
 		
-		values.each do |v|
+		values.uniq.each do |v|
 		  School.create(:name => v.to_s)
   end
 		  

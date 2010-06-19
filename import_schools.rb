@@ -33,7 +33,7 @@ file = "universities.txt"
 			io.each {|line| line.chomp! ; values << line }
 		end
 		
-		values.each do |v|
+		values.uniq.each do |v|
 		  School.create(:name => v.to_s)
   end
 		  
