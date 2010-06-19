@@ -10,15 +10,15 @@ class ConnectController < ApplicationController
 #     if User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name.nil? || User.find_by_facebook_id(@current_user.facebook_session.user.id).school_name.blank?
 #        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:school_name, @current_user.facebook_session.user.education_history.last.name)
 #       end
-      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).first_name != nil
-        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:first_name, @current_user.facebook_session.user.first_name)
-        end
-      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).last_name != nil
-        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:last_name, @current_user.facebook_session.user.last_name)
-        end
-      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).new != nil
-        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:new, '1')
-        end
+#      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).first_name != nil
+#        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:first_name, @current_user.facebook_session.user.first_name)
+#        end
+#      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).last_name != nil
+#        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:last_name, @current_user.facebook_session.user.last_name)
+#        end
+#      unless User.find_by_facebook_id(@current_user.facebook_session.user.id).new != nil
+#        User.find_by_facebook_id(@current_user.facebook_session.user.id).update_attribute(:new, '1')
+#        end
 #set_user_info
 
      render :update do |page|

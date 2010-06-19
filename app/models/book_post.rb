@@ -36,8 +36,6 @@ class BookPost < ActiveRecord::Base
 
 	def before_save
       unless @data.blank?
-		#something with UID will have to be done in here too...
-    # after user and session models are put in, we can associate schools and do something with school id as well
     self.title = @data["list"][0]["title"]
 		self.author = @data["list"][0]["author"]
 		self.publisher = @data["list"][0]["publisher"]

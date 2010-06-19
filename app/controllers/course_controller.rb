@@ -12,7 +12,7 @@ def create
 end
 
 def check  # this can probably be refactored with true/false and the toggle_attribute method
-    @course = Course.find_by_name_and_uid(params[:course_name], @current_user.facebook_id)
+    @course = Course.find_by_name_and_uid(params[:course_name], current_user.id)
 
     if @course.checked == 0 || @course.checked == nil
         
@@ -29,7 +29,7 @@ def check  # this can probably be refactored with true/false and the toggle_attr
 end
 
 def delete
-    @course = Course.find_by_name_and_uid(params[:course_name], @current_user.facebook_id)
+    @course = Course.find_by_name_and_uid(params[:course_name], current_user.id)
     @course.destroy
     render :partial => 'course/delete'
 end

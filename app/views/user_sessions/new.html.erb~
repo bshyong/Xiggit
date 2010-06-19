@@ -1,0 +1,24 @@
+<h1 style="text-align:center; margin-bottom:-10px;">Welcome back!</h1>
+
+<table align="center" style="text-align:left;">
+<tr><td>
+<% form_for @user_session do |form| %>  
+<%= form.error_messages %>  
+ </td></tr>
+  </table>
+<table align="center">
+<tr><td>
+  <p>  
+    <%= form.label :email, "Email" %>  <br />
+    <%= form.text_field :email %>  
+  </p>  
+  <p>  
+    <%= form.label :password, "Password" %>  <br />
+    <%= form.password_field :password %>  
+  </p>  
+  <p>  
+    <%= form.submit "Login" %>  
+  </p>  </td></tr>
+  </table>
+
+<% end %>  

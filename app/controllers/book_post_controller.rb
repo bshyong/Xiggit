@@ -2,7 +2,7 @@
 
 class BookPostController < ApplicationController
 
- before_filter :require_current_user
+ #before_filter :require_current_user
  before_filter :ensure_school
 
  layout 'application'
@@ -20,13 +20,13 @@ class BookPostController < ApplicationController
 
 	
 	def ensure_school
-        if @current_user.school_name.blank?
+        if current_user.school_name.blank?
           redirect_to :controller => 'home', :action => 'find_school'
         end
       end
 	
 	def list
- @book_posts = BookPost.paginate_by_school_name @current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
+ @book_posts = BookPost.paginate_by_school_name current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
   @book_bag = find_bag
   end
 

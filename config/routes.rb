@@ -2,13 +2,20 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
   map.connect '/login', :controller => 'home', :action => 'login'
   map.root :controller => "home"
-
+  map.connect '/user/login', :controller => 'user_sessions', :action => 'new'  
   map.helper '/helpers/:id', :controller => 'helper', :action => 'helper'
   map.user_method '/user/:action', :controller => 'user'
   map.book_post_method '/book_post/:action', :controller => 'book_post'
 
+#map.login 'login', :controller => 'user_sessions', :action => 'new'  
+
+map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'  
+map.resources :user_sessions  
+map.resources :users  
+
+
   map.course_method '/course/:action', :controller => 'course'
-  map.login_method 'login/:action', :controller => 'login'
+#  map.login_method 'login/:action', :controller => 'login'
   map.book_bag_method 'book_bag/:action', :controller => 'book_bag'
   map.notifier_method 'notifier/:action', :controller => 'notifier'
   
@@ -21,15 +28,15 @@ ActionController::Routing::Routes.draw do |map|
 
   map.fb_init_options '/fb-init-options/:action', :controller => 'fb_init_options'
 
-  map.with_options :controller => 'connect' do |r|
-    r.connection_required '/connect', :action => 'connection_required'
-    r.logout '/connect/logout', :action => 'logout'
-    r.login '/connect/login', :action => 'login'
-    r.uninstall '/connect/uninstall', :action => 'uninstall'
-    r.publish_user_actions '/connect/publish-user-actions', :action => 'publish_user_actions'
-    r.invite_friends '/connect/invite-friends', :action => 'invite_friends'
-    r.detecting_connect_status '/connect/detecting-connect-status', :action => 'detecting_connect_status'
-  end
+#  map.with_options :controller => 'connect' do |r|
+#    r.connection_required '/connect', :action => 'connection_required'
+#    r.logout '/connect/logout', :action => 'logout'
+#    r.login '/connect/login', :action => 'login'
+#    r.uninstall '/connect/uninstall', :action => 'uninstall'
+#    r.publish_user_actions '/connect/publish-user-actions', :action => 'publish_user_actions'
+#    r.invite_friends '/connect/invite-friends', :action => 'invite_friends'
+#    r.detecting_connect_status '/connect/detecting-connect-status', :action => 'detecting_connect_status'
+#  end
 
   map.home_method '/:action', :controller => 'home'
 

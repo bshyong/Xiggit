@@ -2,17 +2,17 @@ class HomeController < ApplicationController
 
     layout 'application'
     
-    USER_ID, PASSWORD = 'demo', 'demopass'
-    before_filter :authenticate, :only => [:login, :home]
+  #  USER_ID, PASSWORD = 'demo', 'demopass'
+ #   before_filter :authenticate, :only => [:login, :home]
 
     # this code can probably be refactored by using a :before_filter
   
     def index
-      if @current_user
-        if @current_user.school_name.blank?
+      if current_user
+        if current_user.school_name.blank?
           redirect_to :action => 'find_school'
         else
-         if @current_user.new == 0
+         if current_user.new == 0
             redirect_to :action => 'home'
           else
             @book_bag = find_bag
@@ -24,8 +24,8 @@ class HomeController < ApplicationController
   end
 
     def home
-        if @current_user
-           if @current_user.school_name.blank?
+        if current_user
+           if current_user.school_name.blank?
           redirect_to :action => 'find_school'
         else          
             @book_bag = find_bag
@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     end
 
     def login
-        if @current_user
+        if current_user
         redirect_to :action => 'home'
         else
         render :layout => 'login'
@@ -47,28 +47,28 @@ class HomeController < ApplicationController
 
         @book_bag = find_bag
 
-        unless @current_user
+        unless current_user
         render :layout => 'login'
         end
     end
 
     def terms
         @book_bag = find_bag
-        unless @current_user
+        unless current_user
         render :layout => 'login'
         end
     end
     
     def about
         @book_bag = find_bag
-        unless @current_user
+        unless current_user
         render :layout => 'login'
         end
     end
 
     def help
         @book_bag = find_bag
-        unless @current_user
+        unless current_user
         render :layout => 'login'
         end
     end
@@ -81,7 +81,7 @@ end
 def set_school
   
 if School.find_by_name(params[:name])
-  @current_user.update_attribute(:school_name, params[:name])
+  current_user.update_attribute(:school_name, params[:name])
   flash[:notice] = fading_flash_message("School saved successfully!", 3)
   redirect_to :action => 'index'
 else

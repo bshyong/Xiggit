@@ -1,20 +1,7 @@
-<% x = 1 %>
-
-<% if x == 1 %>
-
 <h1>The easiest way to buy and sell.<br /></h1>
-  <h3>Login below to get started.</h3>
-  <br />  <br />
+  <h3>Login or register below to get started.</h3>
+  <br />  <br />  
 
-   <%= text_field 'school_email', 'school_email'%><br />
-    <%= text_field 'password', 'password'%>
-    <%= submit_tag 'Login' %>
-   
-   <% else %>
-
-<h1>The easiest way to buy and sell.<br /></h1>
-  <h3>Click the button below to get started.</h3>
-  <br />  <br />
-
-   <%= fb_login_button remote_function(:update => 'fb_connect', :url => login_path, :complete => 'FB.XFBML.Host.parseDomTree()'), :size => :large, :background => :white, :length => :long %>
-   <% end %>
+   <%#= fb_login_button remote_function(:update => 'fb_connect', :url => login_path, :complete => 'FB.XFBML.Host.parseDomTree()'), :size => :large, :background => :white, :length => :long %>
+   <h3><%= link_to "Register", new_user_path %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= link_to "Login", :controller => 'user_sessions', :action => 'new' %></h3>
+   <br />  

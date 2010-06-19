@@ -36,7 +36,7 @@
 
      <div id="page">
        
-     <% if @current_user %>
+     <% if current_user %>
        <div id="sidebar">
         <%= render :partial => 'shared/sidebar' %>
       </div>
@@ -49,11 +49,11 @@
         </div>
         <div id='content'>
 
-         <% if @current_user %>    
+         <% if current_user %>    
   
         <% unless request.url == root_url %>
 
-          <% if @current_user.email == nil || @current_user.email.blank? %>
+          <% if current_user.email == nil || current_user.email.blank? %>
           <div id="warning">IMPORTANT: <div style="font-family:'Delicious Bold';display:inline;font-size:18px;color:black;">You won't be able to contact sellers or post books<br />until you enter an email address!<br />
             </div>
 

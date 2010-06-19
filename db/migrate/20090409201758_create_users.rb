@@ -1,12 +1,18 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-      t.integer :facebook_id, :limit => 20 
-      t.string :facebook_session_key
-
+      #t.integer :facebook_id, :limit => 20 
+      #t.string :facebook_session_key
+      t.string :first_name  
+      t.string :email  
+      t.string :crypted_password  
+      t.string :password_salt  
+      t.string :persistence_token  
       t.timestamps
     end
-    add_index :users, :facebook_id, :uniq => true
+   # add_index :users, :facebook_id, :uniq => true
+   add_index :users, :email, :uniq => true
+   add_index :users, :id, :uniq => true
   end
 
   def self.down

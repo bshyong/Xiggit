@@ -302,7 +302,7 @@ div.auto_complete ul strong.highlight {
   margin-top:10px;
   font-size:18px;
   font-family:'DeliciousBold';
-  border: 2px solid green;
+  border: 2px solid red;
   padding: 10px;
   overflow: auto;
   text-align:center;

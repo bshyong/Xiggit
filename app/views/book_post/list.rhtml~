@@ -20,7 +20,7 @@
 
 
 <div id="wrap_list">
-<div id="list_body" class="deliciousbold"><div style="text-align:center; margin-bottom:10px;">current listings in the underground market at <%= @current_user.school_name %>
+<div id="list_body" class="deliciousbold"><div style="text-align:center; margin-bottom:10px;">current listings for <%= current_user.school_name %>
 
 </div>
 <% if @book_posts.blank? %>
@@ -33,21 +33,21 @@ There are no posts at the moment.  Be the first to <%= link_to 'list your book',
   <% if params[:order] == "price ASC" %>
   <big>&raquo;</big>
     <% end %>
-<%= link_to "Sort by price", :action => 'list', :order => "price ASC", :school_id => @default_school %>
+<%= link_to "Sort by price", :action => 'list', :order => "price ASC" %>
 
 <%= '&nbsp;'*2 %>|<%= '&nbsp;'*2 %>
 
 <% if params[:order] != "price ASC" && params[:order] != "condition DESC" %>
   <big>&raquo;</big>
   <% end %>
-<%= link_to "Sort by date", :action => 'list', :order => "created_at DESC", :school_id => @default_school %>
+<%= link_to "Sort by date", :action => 'list', :order => "created_at DESC"%>
 
 
 <%= '&nbsp;'*2 %>|<%= '&nbsp;'*2 %>
    <% if params[:order] == "condition DESC" %>
   <big>&raquo;</big>
     <% end %>
-<%= link_to "Sort by condition", :action => 'list', :order => "condition DESC", :school_id => @default_school %>
+<%= link_to "Sort by condition", :action => 'list', :order => "condition DESC" %>
 
 
   <%= will_paginate @book_posts %>
@@ -87,13 +87,13 @@ There are no posts at the moment.  Be the first to <%= link_to 'list your book',
            <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
 
              <div style="margin-right:15px;float:right;overflow:visible;">
-               <% if b.uid != @current_user.facebook_id %>
-               <% unless @current_user.email.nil? || @current_user.email.blank? %>
+               <% if b.uid != current_user.facebook_id %>
+               <% unless current_user.email.nil? || current_user.email.blank? %>
                      <div style="font-family:'Delicious Bold';float:right;position:relative;top:20px;display:inline;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
     <%= image_tag 'http://www.xiggit.com/icons/action_add.png' %>  <%= link_to_remote 'Add to bag', :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id }, :html_options => {:class => 'button'} %>
              </div>
                  <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
-                 <%= image_tag 'http://www.xiggit.com/icons/letter.png' %>  <%= link_to_remote 'Contact seller', :url => { :controller => 'notifier', :action => 'contact_seller', :email => User.find_by_facebook_id(b.uid).email, :post_id => b.id, :sender_email => @current_user.email, :sender_name => @current_user.first_name, :book_title => b.title }, :html_options => {:class => 'button'} %>
+                 <%= image_tag 'http://www.xiggit.com/icons/letter.png' %>  <%= link_to_remote 'Contact seller', :url => { :controller => 'notifier', :action => 'contact_seller', :email => User.find_by_facebook_id(b.uid).email, :post_id => b.id, :sender_email => current_user.email, :sender_name => current_user.first_name, :book_title => b.title }, :html_options => {:class => 'button'} %>
              </div>
              <% else %>
                   <div id ="contact_seller_link_<%= b.id %>" style="float:right;position:relative;top:20px;display:inline;margin-right:7px;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">

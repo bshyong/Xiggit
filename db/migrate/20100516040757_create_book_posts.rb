@@ -18,12 +18,12 @@ class CreateBookPosts < ActiveRecord::Migration
 
     end
 
-      add_index :book_posts, :uid, :name => 'uid_ix'
-      add_index :book_posts, :price, :name => 'price_ix'
-      add_index :book_posts, :created_at, :name => 'created_at_ix'
-      add_index :book_posts, :course, :name => 'course_ix'
-      add_index :book_posts, :condition, :name => 'condition_ix'
-      add_index :book_posts, :school_name, :name => 'school_name_ix'
+      add_index :book_posts, :uid, :name => 'bp_uid_ix'
+      add_index :book_posts, :price, :name => 'bp_price_ix'
+      add_index :book_posts, :created_at, :name => 'bp_created_at_ix'
+      add_index :book_posts, :course, :name => 'bp_course_ix'
+      add_index :book_posts, :condition, :name => 'bp_condition_ix'
+      add_index :book_posts, :school_name, :name => 'bp_school_name_ix'
       
 
   end

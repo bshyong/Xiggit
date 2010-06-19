@@ -13,9 +13,9 @@
         <li><div class="orange" id="new_post_link" style="font-family:'DeliciousBold';"><%= link_to 'Price Comparison', :controller => 'home', :action => 'price_compare' %></div></li>
       <li><%= link_to "Add new book post", {:controller => 'book_post', :action => 'new' } %></li> <% #, :id => "newpostlink" %>
       
-      <li><%= link_to 'View all books', book_post_method_path('list') %></li>
+      <li><%= link_to 'View all books', book_post_method_path('list') %></li><br /><br />
       <li><% form_tag search_method_path, :method => 'get' do %>
-    <%= text_field_tag :terms, params[:terms], :size => 19 %>
+    <%= text_field_tag :terms, params[:terms], :size => 16 %>
     <%= submit_tag "Search", :name => nil, :terms => params[:terms] %>
 <% end %></li>
     </ul>

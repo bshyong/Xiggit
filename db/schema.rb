@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100525035418) do
+ActiveRecord::Schema.define(:version => 20100617015849) do
 
   create_table "book_posts", :force => true do |t|
     t.string   "isbn"
@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(:version => 20100525035418) do
     t.string   "school_name"
   end
 
-  add_index "book_posts", ["condition"], :name => "condition_ix"
-  add_index "book_posts", ["course"], :name => "course_ix"
-  add_index "book_posts", ["created_at"], :name => "created_at_ix"
+  add_index "book_posts", ["condition"], :name => "bp_condition_ix"
+  add_index "book_posts", ["course"], :name => "bp_course_ix"
+  add_index "book_posts", ["created_at"], :name => "bp_created_at_ix"
   add_index "book_posts", ["id"], :name => "bp_id_ix"
   add_index "book_posts", ["isbn"], :name => "isbn_ix"
-  add_index "book_posts", ["price"], :name => "price_ix"
-  add_index "book_posts", ["school_name"], :name => "school_name_ix"
-  add_index "book_posts", ["uid"], :name => "uid_ix"
+  add_index "book_posts", ["price"], :name => "bp_price_ix"
+  add_index "book_posts", ["school_name"], :name => "bp_school_name_ix"
+  add_index "book_posts", ["uid"], :name => "bp_uid_ix"
 
   create_table "courses", :force => true do |t|
     t.integer  "uid"
@@ -77,17 +77,19 @@ ActiveRecord::Schema.define(:version => 20100525035418) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_id",          :limit => 20
-    t.string   "facebook_session_key"
+    t.string   "first_name"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "school_name"
-    t.string   "first_name"
-    t.string   "last_name"
     t.integer  "new"
-    t.string   "email"
   end
 
-  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id"
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["id"], :name => "index_users_on_id"
+  add_index "users", ["school_name"], :name => "school_name_ix"
 
 end
