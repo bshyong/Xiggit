@@ -1,0 +1,9 @@
+<ol id="list">
+<% @schools.each do |s| %>
+  <li id="<%= s.id %>"> 
+
+    <%=h s.name %>&nbsp;&nbsp;|&nbsp;
+      <%= link_to_remote "Delete", {:update => s.id, :confirm => 'Are you sure you want to delete ' + s.name + '?', :url => { :controller => 'school', :action => 'delete', :school_id => s.id }} %>
+      </li>
+<% end %>
+</ol>

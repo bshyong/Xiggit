@@ -1,0 +1,4 @@
+<li id="new_school">
+ <%=h @school.name %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <%= link_to_remote "Delete", {:update => 'new_school', :confirm => 'Are you sure you want to delete ' + @school.name + '?', :url => { :controller => 'school', :action => 'delete', :school_name => @school.name }} %>
+  </li>

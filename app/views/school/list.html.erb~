@@ -9,7 +9,7 @@
 <% end %>
 <br /><br />
 
-<ol class="links" id="list">
+<ol id="list">
 <% for school in @schools %>
 <% @school = school %>
 <li id="<%= school.id %>">

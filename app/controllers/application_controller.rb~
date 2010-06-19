@@ -14,10 +14,11 @@ class ApplicationController < ActionController::Base
 #  before_filter :set_assumptions
 #  before_filter :create_facebook_session
 #  before_filter :set_current_user
+   before_filter :ensure_user
 
   skip_before_filter :verify_authenticity_token, :only => [:set_current_user_email]
 
-in_place_editor
+in_place_edit_for :user, :email
 
 def set_current_user_email
         @item = User.find_by_id(current_user.id)
@@ -124,6 +125,12 @@ end
 
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
         session[:book_bag] ||= BookBag.new
+    end
+    
+    def ensure_user
+      unless current_user
+        redirect_to :controller => 'home', :action => 'login'
+      end
     end
 
 end

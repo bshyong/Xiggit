@@ -125,5 +125,11 @@ end
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
         session[:book_bag] ||= BookBag.new
     end
+    
+    def ensure_user
+      unless current_user
+        redirect_to :controller => 'home', :action => 'login'
+      end
+    end
 
 end
