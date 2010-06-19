@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   skip_before_filter :verify_authenticity_token, :only => [:set_current_user_email]
 
-
+in_place_edit_for :user, :email
 
 def set_current_user_email
         @item = User.find_by_id(current_user.id)

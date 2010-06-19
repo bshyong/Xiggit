@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.helper '/helpers/:id', :controller => 'helper', :action => 'helper'
   map.user_method '/user/:action', :controller => 'user'
   map.book_post_method '/book_post/:action', :controller => 'book_post'
+  map.school_method '/school/:action', :controller => 'school'
 
 #map.login 'login', :controller => 'user_sessions', :action => 'new'  
 

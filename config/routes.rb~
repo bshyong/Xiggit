@@ -2,10 +2,11 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
   map.connect '/login', :controller => 'home', :action => 'login'
   map.root :controller => "home"
-  map.login '/user/login', :controller => 'user_sessions', :action => 'new'  
+  map.connect '/user/login', :controller => 'user_sessions', :action => 'new'  
   map.helper '/helpers/:id', :controller => 'helper', :action => 'helper'
   map.user_method '/user/:action', :controller => 'user'
   map.book_post_method '/book_post/:action', :controller => 'book_post'
+  map.school_method '/schools/:action', :controller => 'school'
 
 #map.login 'login', :controller => 'user_sessions', :action => 'new'  
 
