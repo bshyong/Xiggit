@@ -55,7 +55,7 @@ require 'net/http'
 		if @book_post.save
 			redirect_to :action => 'list'
 		else
-			render :action => 'details'
+			render :action => 'new'
 		end
 	end
 
