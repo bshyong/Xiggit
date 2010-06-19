@@ -157,7 +157,7 @@ background:none;
 
 <div id="wrap4">
   <br />
-<div class="center" style="font-size:20px;">sell direct to your classmates at <%=  current_user.school_name %>
+<div class="center" style="font-size:20px;">sell direct to your classmates at <br /><%=  current_user.school_name %>
 <br /><br /></div>
 <%= error_messages_for 'book_post', :header_message => nil, :message => 'Please fix the following errors and try again.' -%>
 
@@ -168,18 +168,18 @@ background:none;
 
   <fieldset style="border:none;">
 <table class="searchtable" id="newpostfields" align="center"><tr><td>
-       <label for="book_post_isbn">ISBN <small>(13 digit)</small></label>
-        <br /> 
+       <label for="book_post_isbn">ISBN <small>(10 or 13 digit)</small></label>
+        <br /> <br />
     <%= text_field 'book_post', 'isbn' %></td>
     <td>
-<label for="book_post_price">price</label><br/>
+<label for="book_post_price">price</label><br/><br/>
 <%= text_field 'book_post', 'price' %>
    </td>
 
     </tr>
    <tr>
        <td><br/>
-    <label for="book_post_condition">condition</label><br/>
+    <label for="book_post_condition">condition</label><br/><br/>
 <select id ="book_post[condition]" name="book_post[condition]" >
   <option value="New">New</option>
   <option value="Very Good">Very Good</option>
@@ -189,7 +189,7 @@ background:none;
 
 
    <td>  <br/>
-   <label for="lookup_courses">course <small>(dept &amp; number)</small></label><br/>
+   <label for="lookup_courses">course <small>(dept &amp; number)</small></label><br/><br/>
    <%= text_field :book_post, :course %>
    <%#= text_field_with_auto_complete :book_post, :course %>
    </td>
@@ -197,7 +197,7 @@ background:none;
    </table>
    <table class="searchtable" align="center"><tr><td>
 <br /><br/>
-  <label for="book_post_comments">comments  <small>(optional)</small></label><br/>
+  <label for="book_post_comments">comments  <small>(optional - we'll provide book details from ISBN info)</small></label><br/><br/>
 <%= text_area 'book_post', 'comments', :size => "40x3" %>
 
        </td></tr>

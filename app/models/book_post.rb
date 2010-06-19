@@ -30,7 +30,7 @@ class BookPost < ActiveRecord::Base
 	def validate
 		errors.add(:price, "-  should be a positive value") if price.nil? || price < 0.01
 		if @data["stat"] != "ok"
-			errors.add(:isbn)
+			errors.add(:isbn, "lookup failed. Please enter book data manually.")
 		end
 	end
 
@@ -45,7 +45,7 @@ class BookPost < ActiveRecord::Base
 # conditional assignment sets edition to "n/a" if the hash didn't provide a value
 
       #for some reason, isbns are returning invalid when using cb, so temporary switch back to WorldCat
-      # NOTE: WorldCat has a limit of 1000 queries per day, switch to CB or Amazon.
+      # NOTE: WorldCat has a limit of 1000 queries per day, we should switch to CB or Amazon.
 #    self.isbn = @data["isbn13"]
 #    self.title = @data["title"]
 #    self.author = @data["author"]

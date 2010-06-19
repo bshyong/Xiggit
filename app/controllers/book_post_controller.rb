@@ -2,6 +2,8 @@
 
 class BookPostController < ApplicationController
 
+require 'net/http'
+
  #before_filter :require_current_user
  before_filter :ensure_school
 
@@ -53,7 +55,7 @@ class BookPostController < ApplicationController
 		if @book_post.save
 			redirect_to :action => 'list'
 		else
-			render :action => 'new'
+			render :action => 'details'
 		end
 	end
 
@@ -102,4 +104,5 @@ end
         session[:book_bag] ||= BookBag.new
     end
 
+    
 end
