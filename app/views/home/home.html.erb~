@@ -8,7 +8,7 @@ Click below to edit or delete your listings.
 </div>
 <div>
 <hr />
-<b>Your listings</b>
+<b>Your active listings</b>
     <ul class="links">
 <% if @current_user %>
       <% BookPost.find_all_by_uid(@current_user.facebook_id).each do |b| %>

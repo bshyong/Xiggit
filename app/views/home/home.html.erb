@@ -3,15 +3,15 @@
 
 
 
-<% unless BookPost.find_all_by_uid(@current_user.facebook_id).blank? %>
+<% unless BookPost.find_all_by_uid(current_user.id).blank? %>
 Click below to edit or delete your listings.
 </div>
 <div>
 <hr />
 <b>Your active listings</b>
     <ul class="links">
-<% if @current_user %>
-      <% BookPost.find_all_by_uid(@current_user.facebook_id).each do |b| %>
+<% if current_user %>
+      <% BookPost.find_all_by_uid(current_user.id).each do |b| %>
       <p>
       <li><%= link_to_remote b.title, :update => 'user_home', :url => { :controller => 'book_post', :action => 'show_partial', :id => b.id },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %>
       
