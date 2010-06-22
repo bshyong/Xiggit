@@ -75,7 +75,7 @@ class HomeController < ApplicationController
 
 def find_school
   render :layout => 'login'
-  unless curret_user
+  unless current_user
     redirect_to :action => 'login'
   end
   
