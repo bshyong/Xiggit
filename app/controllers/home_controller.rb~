@@ -75,27 +75,11 @@ class HomeController < ApplicationController
 
 def find_school
   render :layout => 'login'
-end
-
-def add_schools
-columns = [:name]
-values = []
-
-file = "universities.txt"
-
-	File.open( file ) do |io|
-			io.each {|line| line.chomp! ; values << line }
-		end
-		
-		file2 = "commcolleges.txt"
-		
-			File.open( file2 ) do |io|
-			io.each {|line| line.chomp! ; values << line }
-		end
-		
-		values.uniq.each do |v|
-		  School.create(:name => v.to_s)
+  unless curret_user
+    redirect_to :action => 'login'
   end
+  
+end
 
    
 def set_school

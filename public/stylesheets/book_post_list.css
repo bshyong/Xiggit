@@ -266,11 +266,6 @@ div#homeschool {
     line-height:100%;
 }
 
-div#logout_link a{
-    font-family:'DeliciousBold';
-    font-size:16px;
-}
-
 div.details_link a{
         color:#114b65;
         text-decoration:none;

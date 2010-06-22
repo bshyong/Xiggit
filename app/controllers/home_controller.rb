@@ -75,6 +75,10 @@ class HomeController < ApplicationController
 
 def find_school
   render :layout => 'login'
+  unless curret_user
+    redirect_to :action => 'login'
+  end
+  
 end
 
    

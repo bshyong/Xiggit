@@ -318,7 +318,7 @@ img {
 border:none;
 }
 
-/* BEGIN auto_complete styling*/
+/* BEGIN auto_complete styling */
 
 div.auto_complete {
   width: 350px;
@@ -348,4 +348,21 @@ div.auto_complete ul strong.highlight {
   padding:0;
 }
 
-/*END auto_complete styling*/
+/* END auto_complete styling */
+
+#warning {
+  margin-top:10px;
+  font-size:18px;
+  font-family:'DeliciousBold';
+  border: 2px solid red;
+  padding: 10px;
+  overflow: auto;
+  color:black;
+  text-align:center;
+}
+
+div#logout_link a{
+    font-family:'DeliciousBold';
+    font-size:16px;
+}
+

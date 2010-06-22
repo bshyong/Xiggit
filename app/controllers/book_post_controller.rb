@@ -51,14 +51,49 @@ require 'net/http'
 
   
 	def create
-		@book_post = BookPost.new(params[:book_post])
-		if @book_post.save
-			redirect_to :action => 'list'
-		else
-			render :action => 'new'
-		end
-	end
+#		@book_post = BookPost.new(params[:book_post])
+#		flash[:notice] = fading_flash_message("Book saved successfully.", 3)
+#		if @book_post.save
+#			redirect_to :action => 'list'
+#		else
+#			render :action => 'new'
+#		end
+if session[:unsaved_book]
+  @book_post = BookPost.new(params[:book_post].reverse_merge(session[:unsaved_book]))
+else
+  @book_post = BookPost.new(params[:book_post])
+end
+  
+  if @book_post.save
+    session.delete[:unsaved_book]
+    flash[:notice] = fading_flash_message("Book saved successfully.", 3)
+    redirect_to :action => 'list'
+  else
+    if @book_post.errors.on(:isbn) && @book_post.errors.length == 1
+      session[:unsaved_book] = params[:book_post]
+      flash[:warning] = 'Sorry, ISBN lookup failed.  Please enter book data manually.<br />Don\'t worry about your information from the previous form, we saved it for you!'
+      redirect_to :action => 'details'
+    else
+      render :action => 'new'
+    end
+  end
+end
 
+def manual_create
+  if session[:unsaved_book]
+  @book_post = BookPost.new(params[:book_post].reverse_merge(session[:unsaved_book]))
+else
+  @book_post = BookPost.new(params[:book_post])
+end
+if @book_post.save
+session.delete(:unsaved_book)
+flash[:notice] = fading_flash_message("Book saved successfully.", 3)
+redirect_to :action => 'list'
+else
+  render :action => 'details'
+end
+  
+end
 
 	def delete
 

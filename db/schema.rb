@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100617015849) do
+ActiveRecord::Schema.define(:version => 20100622040003) do
 
   create_table "book_posts", :force => true do |t|
     t.string   "isbn"
@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(:version => 20100617015849) do
     t.datetime "updated_at"
     t.integer  "checked"
   end
-
-  add_index "courses", ["uid"], :name => "course_uid_ix"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
