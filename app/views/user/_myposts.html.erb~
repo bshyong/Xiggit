@@ -2,7 +2,7 @@
     <h3>My Listings</h3>
     
     <ul class="links">
-        <% if BookPost.find_all_by_id(current_user.id).blank? %>
+        <% if BookPost.find_all_by_uid(current_user.id).blank? %>
  You currently have no listings.
         <% else %>
         

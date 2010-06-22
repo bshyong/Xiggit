@@ -1,6 +1,7 @@
-<h1>About</h1>
+<h1>Jobs</h1>
 <p>
-Xiggit was created by a college kid fed up with the broken textbook system. 
+If you would like to help your fellow students save money on books, and have lots of fun at the same time, send us a message!  
 <br /><br />
-We'd love to hear from you!<br /> You can reach us at <%= mail_to "feedback@xiggit.com", "feedback@xiggit.com", :encode => "javascript" %> 
-</p>
+As a campus brand rep, we'll hook you up with free swag, cool surprises, and of course cold, hard cash!<br />Send your resume or brief intro to <%= mail_to "jobs@xiggit.com", "jobs@xiggit.com", :encode => "javascript" %> 
+<br /><br />
+(For those of you that want a "real" job, we also take compsci, art, and business students.)  In the subject line, note which area you are interested in.</p>
