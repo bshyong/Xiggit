@@ -2,16 +2,11 @@
     <h3>My Listings</h3>
     
     <ul class="links">
-        <% if BookPost.find_all_by_id(current_user.id).blank? %>
+        <% if BookPost.find_all_by_uid(current_user.id).blank? %>
  You currently have no listings.
         <% else %>
         
-<% if current_user %>
       <% BookPost.find_all_by_uid(current_user.id).each do |b| %>
       <li><%= link_to_remote truncate(b.title, :omission => "...", :length => 28), :update => 'content', :url => { :controller => 'book_post', :action => 'show_partial', :id => b.id },  :complete => visual_effect(:opacity, "content", :from => 0.5, :to => 1.0, :duration => 1.1) %></li>
-      <% end %>
-      <% else %>
-      <li>There was a problem loading your listings.  Please make sure that you are logged in and refresh the page.</li>
-      <% end %>
       <% end %>
     </ul>
