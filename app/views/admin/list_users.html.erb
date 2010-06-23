@@ -1,0 +1,11 @@
+
+<h3><%= @users.length %>  users at <%= @school %></h3>
+<p>
+<ol>
+<% @users.each do |u| %>
+<li><%= u.email %></li>
+<% end %>
+</ol>
+</p>
+
+<%= link_to 'Back to admin homepage', :action => 'index' %>

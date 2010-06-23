@@ -2,6 +2,8 @@ class HomeController < ApplicationController
 
     layout 'application'
     
+    before_filter :ensure_user, :only => [:set_school]
+    
   #  USER_ID, PASSWORD = 'demo', 'demopass'
  #   before_filter :authenticate, :only => [:login, :home]
 

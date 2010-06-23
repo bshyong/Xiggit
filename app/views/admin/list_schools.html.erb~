@@ -1,0 +1,25 @@
+<h1>School#list</h1>
+
+<% form_remote_tag(:url => {:controller => 'school', :action => 'create_school'},
+    :update => "list", :position => :top,
+    :html => {:id => 'cl_form'},
+    :complete => visual_effect(:highlight, 'new_school', :duration => 1.2)) do %>
+<div style="font-family:'Delicious Bold';">Add a school:</div> <%= text_field 'school', 'name' %>
+<%= submit_tag 'Add' %>
+<% end %>
+<br /><br />
+
+<ol class="links" id="list">
+<% for school in @schools %>
+<% @school = school %>
+<li id="<%= school.id %>">
+<%= in_place_editor_field :school, :name %>
+&nbsp;&nbsp;|&nbsp;
+      <%= link_to_remote "Delete", {:update => school.id, :confirm => 'Are you sure you want to delete ' + school.name + '?', :url => { :controller => 'school', :action => 'delete', :school_id => school.id }} %>
+</li>
+<% end %>
+</ol>
+<%= link_to 'Back to admin homepage', :action => 'index' %>
+
+
+
