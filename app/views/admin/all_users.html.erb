@@ -1,6 +1,6 @@
 <h3><%= @users.length %> user accounts.</h3>
 <ol>
-<%= @users.each do |u| %>
+<% @users.each do |u| %>
 <li><%= u.email %>, <%= u.school_name %></li>
 <% end %>
 </ol>
