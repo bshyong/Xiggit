@@ -1,15 +1,20 @@
 <h1>Admin#actions</h1>
+
+<p>
+<%= @users.length %> user accounts.
+</p>
 <ol>
 <li>
 <p>
 <b>List users by school</b>
 <%= form_tag :action => 'list_users' %>
-  <input type="text" name="name" id="school_name", size="40"/> 
+  <input type="text" name="school_name" id="school_name", size="40"/> 
   <input type="submit" value="List users!"/>
 </form>
 
 <%= fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1, :choices => 15 %>
 </p>
 </li>
+<li><%= link_to 'All users', :action => 'all_users'%></li>
 <li>
 <p><%= link_to 'List schools', :action => 'list_schools'%></p></li>

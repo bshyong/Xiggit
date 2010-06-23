@@ -1,4 +1,38 @@
+<style>
+div.auto_complete {
+  width: 350px;
+  background: #fff;
+}
+
+div.auto_complete ul {
+  border:1px solid #888;
+  margin:0;
+  padding:0;
+  width:100%;
+  list-style-type:none;
+}
+
+div.auto_complete ul li {
+  margin:0;
+  padding:3px;
+}
+
+div.auto_complete ul li.selected {
+  background-color: #ffb;
+}
+
+div.auto_complete ul strong.highlight {
+  color: #800;
+  margin:0;
+  padding:0;
+}
+</style>
+
 <h1>Admin#actions</h1>
+
+<p>
+<%= @users.length %> user accounts.
+</p>
 <ol>
 <li>
 <p>
@@ -11,5 +45,6 @@
 <%= fast_auto_complete_field :school_name, :url => '/auto_complete_for_school_name', :fullSearch => true, :frequency => 0, :minChars => 1, :choices => 15 %>
 </p>
 </li>
+<li><%= link_to 'All users', :action => 'all_users'%></li>
 <li>
 <p><%= link_to 'List schools', :action => 'list_schools'%></p></li>

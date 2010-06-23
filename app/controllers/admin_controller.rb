@@ -15,6 +15,14 @@ class AdminController < ApplicationController
 		end
 end
   
+  def index
+    @users = User.find(:all)
+  end
+  
+  def all_users
+    @users = User.find(:all)
+  end
+  
     def list_schools
     @schools = School.find(:all)
   end
