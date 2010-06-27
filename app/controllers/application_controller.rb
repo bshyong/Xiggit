@@ -15,9 +15,19 @@ class ApplicationController < ActionController::Base
 #  before_filter :create_facebook_session
 #  before_filter :set_current_user
 
-  skip_before_filter :verify_authenticity_token, :only => [:set_current_user_email]
+  skip_before_filter :verify_authenticity_token, :only => [:set_current_user_email, :set_current_user_first_name]
 
-in_place_edit_for :user, :email
+#in_place_edit_for :user, :email
+in_place_edit_for :user, :first_name
+
+def set_current_user_first_name
+        @item = User.find_by_id(current_user.id)
+        @item.update_attributes(:first_name => params[:value]) 
+
+        #validations are being performed, but no error messages yet..
+        render :text => @item.send(:first_name).to_s
+
+end
 
 def set_current_user_email
         @item = User.find_by_id(current_user.id)

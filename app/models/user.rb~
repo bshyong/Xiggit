@@ -10,15 +10,20 @@ class User < ActiveRecord::Base
   #
   # Borrowed from facebooker_authentication plugin.
   #
-  def facebook_session
-    return nil if facebook_session_key.blank?
-    @facebook_session ||= returning Facebooker::Session.create do |session| 
-      session.secure_with!(facebook_session_key, facebook_id, 1.hour.from_now) 
-      Facebooker::Session.current = session
-    end
+#  def facebook_session
+#    return nil if facebook_session_key.blank?
+#    @facebook_session ||= returning Facebooker::Session.create do |session| 
+#      session.secure_with!(facebook_session_key, facebook_id, 1.hour.from_now) 
+#      Facebooker::Session.current = session
+#    end
+#  end
+
+def before_save
+  
+  if self.first_name.blank?
+    self.first_name = 'you'
   end
-
-
+end
 
 validates_presence_of     :email, :message => 'email cannot be blank!', :on => :update
 validates_length_of       :email,    :within => 3..100, :allow_nil => true

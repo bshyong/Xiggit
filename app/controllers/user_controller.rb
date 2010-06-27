@@ -3,8 +3,6 @@ class UserController < ApplicationController
  # before_filter :require_current_user
 
     layout 'application'
-
-
     
     def hide_help
         # set the value in the 'new' column of the 'user' table to a value of 0

@@ -20,7 +20,7 @@ class UserController < ApplicationController
 
     @email = params[:email].fetch('to_s')
 
-    @email_save = @current_user.update_attributes(:email => @email)
+    @email_save = current_user.update_attributes(:email => @email)
 
         if @email_save
           render :update do |page|

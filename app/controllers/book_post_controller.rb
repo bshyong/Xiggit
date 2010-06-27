@@ -20,12 +20,7 @@ require 'net/http'
  in_place_edit_for :book_post, :price
  in_place_edit_for :book_post, :comments
 
-	
-	def ensure_school
-        if current_user.school_name.blank?
-          redirect_to :controller => 'home', :action => 'find_school'
-        end
-      end
+
 	
 	def list
  @book_posts = BookPost.paginate_by_school_name current_user.school_name, :order => params[:order] || "created_at DESC", :page => params[:page]
@@ -138,6 +133,12 @@ end
     def find_bag # the ||= is a conditional operator, if :book_bag exists, its value is returned, otherwise a new BookBag object is created
         session[:book_bag] ||= BookBag.new
     end
-
+    
+    	
+	def ensure_school
+        if current_user.school_name.blank?
+          redirect_to :controller => 'home', :action => 'find_school'
+        end
+      end
     
 end

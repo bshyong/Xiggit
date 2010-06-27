@@ -1,12 +1,15 @@
 <% if current_user %>
   <div class='connected'>
     <%#= fb_profile_pic current_user, :size => :square, :facebook_logo => true, :class => 'profile_pic' %>
-    <div style="font-size:16px;">Welcome, <%= current_user.first_name %><%#= fb_name current_user, :firstnameonly => true, :use_you => false, :linked => false %>!
+    <div style="font-size:16px;">Welcome, <%#= current_user.first_name %>
+    <% @current_user = current_user %>
+    <%= in_place_editor_field(:current_user, :first_name) %>
+    <%#= fb_name current_user, :firstnameonly => true, :use_you => false, :linked => false %>!
     </div>
 <% unless current_user.nil? %>
 <% @current_user = current_user %>
 <%#= in_place_editor_field(:current_user, :email) %>
-<%= current_user.email >
+<%= current_user.email %>
     <% end %>
 
     <div id="logout_link" style="font-size:18px;font-family:'Delicious Bold';letter-spacing:1px;">

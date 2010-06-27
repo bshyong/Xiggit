@@ -18,7 +18,11 @@ class User < ActiveRecord::Base
 #    end
 #  end
 
-
+def before_save
+  if self.first_name.blank?
+    self.first_name = 'you'
+  end
+end
 
 validates_presence_of     :email, :message => 'email cannot be blank!', :on => :update
 validates_length_of       :email,    :within => 3..100, :allow_nil => true
