@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
     layout 'application'
     
-    before_filter :ensure_user, :only => [:find_school, :set_school]
+    before_filter :ensure_user, :only => [:set_school]
     
   #  USER_ID, PASSWORD = 'demo', 'demopass'
  #   before_filter :authenticate, :only => [:login, :home]
@@ -87,7 +87,9 @@ end
 def set_school
   
 if School.find_by_name(params[:name])
+  @school_id = School.find_by_name(params[:name]).id
   current_user.update_attribute(:school_name, params[:name])
+  current_user.update_attribute(:school_id, @school_id)
   flash[:notice] = fading_flash_message("School saved successfully!", 3)
   redirect_to :action => 'index'
 else

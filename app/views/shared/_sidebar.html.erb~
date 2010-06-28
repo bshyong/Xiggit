@@ -14,7 +14,7 @@
       
       <li><% form_tag search_method_path, :method => 'get' do %>
     <%= text_field_tag :terms, params[:terms], :size => 16 %>
-    <%= submit_tag "Search", :name => nil, :terms => params[:terms] %>
+    <%= submit_tag "Search", :name => nil, :terms => params[:terms], :school_id => current_user.school_id %>
 <% end %></li>
     </ul>
   </li>

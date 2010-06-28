@@ -46,8 +46,8 @@ Link: <%= link_to 'Here', h['link'].inner_text() , :popup => 'true'%>
 
 <% if @results.blank? %>
 <br />
-<br />
-Your book couldn't be found in the underground market! <br />Check back later or use our <%= link_to 'price comparator', :controller => 'home', :action => 'price_compare' %> to search online retailers.
+<br /><p>
+Your book couldn't be found in the underground market! <br />Check back later or use our <%= link_to 'price comparator', :controller => 'home', :action => 'price_compare' %> to find <br />the best deals from online retailers.</p>
 <% else %>
 
 <div class="sort_links">
@@ -56,6 +56,7 @@ Your book couldn't be found in the underground market! <br />Check back later or
 </div>
 
 <% @results.each do |b| -%>
+
           <table id="book_posts" align="center">
 
             <tr class="<%= cycle('list-line-odd', 'list-line-even', :name => "list_rows") -%>">
@@ -139,17 +140,10 @@ Your book couldn't be found in the underground market! <br />Check back later or
  <span class="comments"><%=h b.comments %></span></div>
  <% end %>
 </div></div>
-
                 </td>
               </tr>
             </table>
         <% end -%>
 <% end -%>
-
-
 </div>
 </div>
-
-
-
-

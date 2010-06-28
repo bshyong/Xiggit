@@ -6,7 +6,8 @@ layout 'application'
 
 def index
   # cb_search(nil, nil, params[:terms])  # This method is too slow!  Need to optimize the code.
-	 @results = BookPost.paginate_search params[:terms], :per_page => 5, :page => params[:page]
+	 @results = BookPost.paginate_search params[:terms], :per_page => 7, :page => params[:page]
+	 @results = @results.delete_if { |r| r.school_name != current_user.school_name }
 	 @book_bag = find_bag
 end
 
