@@ -87,7 +87,7 @@ There are no posts at the moment.  Be the first to <%= link_to 'list your book',
            <td style="color:black;"><small>price:</small>     <span class="price">  <%= number_to_currency(b.price) %></span>
 
              <div style="margin-right:15px;float:right;overflow:visible;">
-               <% if b.uid != current_user.facebook_id %>
+               <% if b.uid != current_user.id %>
                <% unless current_user.email.nil? || current_user.email.blank? %>
                      <div style="font-family:'Delicious Bold';float:right;position:relative;top:20px;display:inline;border:solid 1px #114b65;text-align:center;padding:3px 7px 3px 5px;;background-color:white;">
     <%= image_tag 'http://www.xiggit.com/icons/action_add.png' %>  <%= link_to_remote 'Add to bag', :url => { :controller => 'book_bag', :action => 'add_to_bag', :id => b.id }, :html_options => {:class => 'button'} %>
