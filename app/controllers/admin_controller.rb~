@@ -19,13 +19,15 @@ end
     @users = User.find(:all)
     @posts = BookPost.find(:all)
     
-    @empty_schools = []
-    School.find(:all).each do |x|
-    if User.find_all_by_school_name(x.name).empty?
-      @empty_schools << x
-    end
     
-    @schools = (School.find(:all).length - @empty_schools.length).to_s
+    # this method is taking way too long, best to do something that will return # of rows instead.
+#    @empty_schools = []
+#    School.find(:all).each do |x|
+#    if User.find_all_by_school_name(x.name).empty?
+#      @empty_schools << x
+#    end
+#    
+#    @schools = (School.find(:all).length - @empty_schools.length).to_s
     
   end
       
