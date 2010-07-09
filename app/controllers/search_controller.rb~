@@ -5,6 +5,11 @@ layout 'application'
   require 'open-uri'
 
 def index
+  
+  unless current_user
+    render :action => 'register'
+  end
+  
   # cb_search(nil, nil, params[:terms])  # This method is too slow!  Need to optimize the code.
 	 @results = BookPost.paginate_search params[:terms], :per_page => 7, :page => params[:page]
 	 @results = @results.delete_if { |r| r.school_name != current_user.school_name }

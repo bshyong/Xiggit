@@ -1,0 +1,53 @@
+<% content_for :header do %>
+  <div style="display:none;"><h1>Getting Started</h1></div>
+<% end  %>
+
+
+  <style type="text/css">
+    p {
+      font-size:18px;
+      margin-top:-10px;
+    }
+
+             .addthis_toolbox .vertical
+{
+    margin-top:-18px;
+    margin-bottom:5px;
+    padding: 10px 0 10px 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.addthis_toolbox .vertical a
+{
+    padding: 4px 7px 4px 34px;
+    position: relative;
+    display:inline;
+    text-decoration: none;
+    color: blue;
+}
+
+.addthis_toolbox .vertical a:hover
+{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #B4D3F8;
+    text-decoration: none;
+}
+
+.addthis_toolbox .vertical span
+{
+    position: absolute;
+    left: 14px;
+    top: 4px;
+}
+
+  </style>
+
+<br />
+    <h2>You must be logged in to use that feature!</h2>
+       <h3><%= link_to "Login", :controller => 'user_sessions', :action => 'new' %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= link_to "Register new account", new_user_path %></h3>
+    
+
+ 
+

@@ -3,8 +3,7 @@
     <%#= fb_profile_pic current_user, :size => :square, :facebook_logo => true, :class => 'profile_pic' %>
     <div style="font-size:16px;">Welcome, <%#= current_user.first_name %>
     <% @current_user = current_user %>
-    <%= in_place_editor_field(:current_user, :first_name) %>
-    <%#= fb_name current_user, :firstnameonly => true, :use_you => false, :linked => false %>!
+    <%= in_place_editor_field(:current_user, :first_name) %><%#= fb_name current_user, :firstnameonly => true, :use_you => false, :linked => false %>!
     </div>
 <% unless current_user.nil? %>
 <% @current_user = current_user %>
@@ -20,5 +19,26 @@
   <%= clear %>
 
 <% else %>
-  <%= fb_login_button remote_function(:update => 'fb_connect', :url => login_path, :complete => 'FB.XFBML.Host.parseDomTree()'), :size => :large, :background => :white, :length => :long %> 
+ <div class='connected'>
+    <%#= fb_profile_pic current_user, :size => :square, :facebook_logo => true, :class => 'profile_pic' %>
+    <div style="font-size:16px;">Welcome, <%#= current_user.first_name %>
+    <% @current_user = current_user %>
+    <%= in_place_editor_field(:current_user, :first_name) %><%#= fb_name current_user, :firstnameonly => true, :use_you => false, :linked => false %>!
+    </div>
+<% unless current_user.nil? %>
+<% @current_user = current_user %>
+<%#= in_place_editor_field(:current_user, :email) %>
+<%= current_user.email %>
+    <% end %>
+
+    <div id="logout_link" style="font-size:18px;font-family:'Delicious Bold';letter-spacing:1px;">
+     <%= link_to "Logout", logout_path %>  
+<%#= link_to_remote "Logout", {:update => 'fb_connect', :before => 'FB.Connect.logout()', :complete => 'FB.XFBML.Host.parseDomTree()', :url => logout_path}, :class => 'small' %>
+    </div>
+    </div>
+  <%= clear %>
+
+
+
+
 <% end %>

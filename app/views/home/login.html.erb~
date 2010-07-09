@@ -1,7 +1,8 @@
 <h1>The easiest way to buy and sell.<br /></h1>
   <h3>Login or register below to get started.</h3>
-  <br />  <br />  
+  <br />  
 
    <%#= fb_login_button remote_function(:update => 'fb_connect', :url => login_path, :complete => 'FB.XFBML.Host.parseDomTree()'), :size => :large, :background => :white, :length => :long %>
-   <h3><%= link_to "Register", new_user_path %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= link_to "Login", :controller => 'user_sessions', :action => 'new' %></h3>
-   <br />  
+   <h2><%= link_to "Login", :controller => 'user_sessions', :action => 'new' %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= link_to "Register new account", new_user_path %></h2>
+
+   <p><%= link_to "I just want to look around", :controller => 'demo', :action => 'index' %></p>

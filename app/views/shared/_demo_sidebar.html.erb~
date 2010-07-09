@@ -1,0 +1,56 @@
+ <div id='fb_connect'>
+  <div class='connected'>
+    <div style="font-size:16px;">Hey you, welcome to Xiggit!
+    </div>
+Your email: demo@xiggit.com
+    </div>
+  <%= clear %>
+ </div>
+ 
+<ul id="sidebar-items">
+  <li>
+    <h3>Welcome</h3>
+    <ul class="links">
+      <li><%= link_to 'Home', root_path %></li>
+        <li><div class="orange" id="new_post_link" style="font-family:'DeliciousBold';"><%= link_to 'Price Comparison', :controller => 'demo', :action => 'price_compare' %></div></li>
+      <li><%= link_to "Add new book post", {:controller => 'demo', :action => 'register' } %></li> <% #, :id => "newpostlink" %>
+      
+      <li><%= link_to 'View all books', {:controller => 'demo', :action => 'register' }  %></li>
+      
+      <li><% form_tag :action => 'register', :method => 'get' do %>
+    <%= text_field_tag :terms, params[:terms], :size => 16 %>
+    <%= submit_tag "Search", :name => nil, :terms => params[:terms] %>
+<% end %></li>
+    </ul>
+  </li>
+<li>
+  <div id="book_bag">
+    <h3>My Book Bag</h3>
+
+    <ul class="links">
+      <li>Your bookbag is empty.</li>
+    </ul>
+ 
+    </div>
+  </li>
+
+<li>
+    <% unless current_user == nil %>
+    <h3>My Checklist</h3>
+    <ul class="links" id="checklist"> 
+       <li>
+       Login to add items to your list!</li>
+    </ul>
+    <% end %>
+  </li>
+
+    <h3>My Listings</h3>
+    
+    <ul class="links">
+<li>
+ You currently have no listings.
+ <br />
+ Login to post your books!</li>
+ </ul>
+    </ul>
+</ul>

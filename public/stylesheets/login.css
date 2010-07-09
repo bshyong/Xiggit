@@ -137,6 +137,7 @@ body {
 
 
 #header {
+margin-top:35px;
   min-height: 114px;
 }
 #header h1, #header h2 {margin: 0}
