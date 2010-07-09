@@ -17,6 +17,19 @@ end
   
   def index
     @users = User.find(:all)
+    @posts = BookPost.find(:all)
+    
+    @empty_schools = []
+    School.find(:all).each do |x|
+    if User.find_all_by_school_name(x.name).empty?
+      @empty_schools << x
+    end
+    
+    @schools = (School.find(:all).length - @empty_schools.length).to_s
+    
+  end
+      
+
   end
   
   def all_users
@@ -36,6 +49,7 @@ end
   def list_users
     @users = User.find_all_by_school_name(params[:school_name])
     @school = params[:school_name]
+    @posts = BookPost.find_all_by_school_name(params[:school_name])
   end
   
   private

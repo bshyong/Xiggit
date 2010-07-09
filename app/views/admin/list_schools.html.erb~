@@ -1,4 +1,7 @@
 <h1>School#list</h1>
+<br />
+<%= link_to 'Back to admin homepage', :action => 'index' %>
+<br /><br />
 
 <% form_remote_tag(:url => {:controller => 'school', :action => 'create_school'},
     :update => "list", :position => :top,
@@ -19,4 +22,4 @@
 </li>
 <% end %>
 </ol>
-<%= link_to 'Back to admin homepage', :action => 'index' %>
+

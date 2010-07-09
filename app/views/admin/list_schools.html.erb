@@ -3,7 +3,7 @@
 <%= link_to 'Back to admin homepage', :action => 'index' %>
 <br /><br />
 
-<% form_remote_tag(:url => {:controller => 'school', :action => 'create_school'},
+<% form_remote_tag(:url => {:controller => 'admin', :action => 'create_school'},
     :update => "list", :position => :top,
     :html => {:id => 'cl_form'},
     :complete => visual_effect(:highlight, 'new_school', :duration => 1.2)) do %>
