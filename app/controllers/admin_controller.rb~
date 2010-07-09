@@ -20,7 +20,7 @@ end
     @posts = BookPost.find(:all)
     
     
-    # this method is taking way too long, best to do something that will return # of rows instead.
+    # this method is taking way too long, best to do something that will return # of rows!
 #    @empty_schools = []
 #    School.find(:all).each do |x|
 #    if User.find_all_by_school_name(x.name).empty?

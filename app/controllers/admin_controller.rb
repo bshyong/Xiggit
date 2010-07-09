@@ -28,8 +28,7 @@ end
 #    end
 #    
 #    @schools = (School.find(:all).length - @empty_schools.length).to_s
-    
-  end
+#    end
       
 
   end
