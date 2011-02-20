@@ -7,3 +7,5 @@ doc/app
 *.swp
 db/*.sqlite*
 *.backup
+import_schools.rb*
+db/*.yml*
